@@ -203,9 +203,10 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
                 if (objectRigidbody != null)
                     objectRigidbody.linearVelocity = Vector2.zero;
+                onDrop?.Invoke();
             });
 
         player.GetComponent<GrabObjectContainer>().ArrayRemove(this);
-        onDrop?.Invoke();
+        
     }
 }
