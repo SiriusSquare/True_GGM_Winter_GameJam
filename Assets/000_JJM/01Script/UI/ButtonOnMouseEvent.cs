@@ -17,11 +17,11 @@ public class ButtonOnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _transform.DOScale(_saveSize * 1.1f, 0.1f);
+        _transform.DOScale(_saveSize * 1.1f, 0.1f).SetUpdate(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _transform.DOScale(_saveSize, 0.1f);
+        _transform.DOScale(_saveSize, 0.1f).SetUpdate(true);
     }
 }

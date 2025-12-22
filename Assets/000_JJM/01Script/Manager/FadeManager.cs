@@ -13,13 +13,15 @@ public class FadeManager : MonoSingleton<FadeManager>
 
     protected override void Awake()
     {
+        base.Awake();
         DontDestroyOnLoad(gameObject);
+        _seq?.Kill();
         FadeOut();
     }
 
     public void FadeOut()
     {
-        _seq = DOTween.Sequence();
+        _seq = DOTween.Sequence().SetUpdate(true);
         _seq.Append(_image.DOFade(1, 0));
         _seq.Append(_image.DOFade(0, ChangeTime));
         _seq.AppendCallback(() =>
@@ -30,7 +32,7 @@ public class FadeManager : MonoSingleton<FadeManager>
     }
     public void FadeIn()
     {
-        _seq = DOTween.Sequence();
+        _seq = DOTween.Sequence().SetUpdate(true);
         _seq.Append(_image.DOFade(0, 0));
         _seq.AppendCallback(() =>
         {

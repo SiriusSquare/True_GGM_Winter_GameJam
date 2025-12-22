@@ -49,7 +49,6 @@ public class UIManager : MonoSingleton<UIManager>
             if(_resetImage.rectTransform.rotation != Quaternion.Euler(Vector3.zero))
                 _resetImage.rectTransform.DORotate(Vector3.zero, 0.1f);
             _resetBtn.interactable = false;
-            return;
         }
         else
         {
@@ -58,10 +57,6 @@ public class UIManager : MonoSingleton<UIManager>
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_settingManager != null && _settingManager.gameObject.activeSelf)
-            {
-                _settingManager.CloseSetting();
-            }
             MenuClick();
         }
     }
@@ -107,7 +102,11 @@ public class UIManager : MonoSingleton<UIManager>
         else
         {
             Time.timeScale = 1f;
-
+            if (_settingManager != null && _settingManager.gameObject.activeSelf)
+            {
+                _settingManager.CloseSetting();
+                return;
+            }
             if (_menuRect != null)
             {
                 _menuTween?.Kill();
@@ -129,6 +128,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void GotoMainScene()
     {
+        Time.timeScale = 1f;
         SceneChangeManager.Instance.ChangeScene("MainMenu");
     }
 }

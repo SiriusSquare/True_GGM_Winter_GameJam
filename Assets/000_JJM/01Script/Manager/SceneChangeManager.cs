@@ -9,7 +9,7 @@ public class SceneChangeManager : MonoSingleton<SceneChangeManager>
 {
     private FadeManager fade;
 
-    private void Awake()
+    protected override void Awake()
     {
         fade = FadeManager.Instance;
     }
@@ -18,6 +18,7 @@ public class SceneChangeManager : MonoSingleton<SceneChangeManager>
     {
         StartCoroutine(PlayFade(() =>
         {
+            Time.timeScale = 1f;
             SceneManager.LoadScene(sceneName);
             fade.FadeOut();
         }));
@@ -28,6 +29,7 @@ public class SceneChangeManager : MonoSingleton<SceneChangeManager>
         Debug.Log("ChangeScene: " + sceneIndex);
         StartCoroutine(PlayFade(() =>
         {
+            Time.timeScale = 1f;
             SceneManager.LoadScene(sceneIndex);
             fade.FadeOut();
         }));
