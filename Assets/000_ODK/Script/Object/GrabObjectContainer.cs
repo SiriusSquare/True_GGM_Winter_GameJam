@@ -212,7 +212,7 @@ public class GrabObjectContainer : MonoBehaviour
         if (!IsInside3x3(mouseWorldPos)) return;
 
         // 🔹 수정된 부분: OverlapPoint 대신 사용 (트리거 포함 감지)
-        // true를 인자로 넣으면 트리거 콜라이더도 감지합니다.
+        // true를 인자로 넣으면 트리거콜라이더도 감지합니다.
         Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, noDropLayer);
 
         // 만약 일반 OverlapPoint가 트리거를 못 잡는다면 아래 방식을 사용하세요
@@ -222,7 +222,31 @@ public class GrabObjectContainer : MonoBehaviour
         if (results.Length > 0) hit = results[0];
         */
 
-        if (hit != null) return;
+        if (hit != null)
+        {
+            if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript abstractObjectScript))
+            {
+                if (abstractObjectScript.UseableObjectType.Length > 0)
+                {
+                    foreach (var useType in abstractObjectScript.UseableObjectType)
+                    {
+                        foreach (var grabObj in GrabArray)
+                        {
+                            if (grabObj.ObjectType.Contains(useType))
+                            {
+                                abstractObjectScript.Use(useType);
+                                return;
+                            }
+                        }
+                    }
+                }
+                
+            }
+            else
+            {
+                return;
+            }
+        }
 
         AbstractObjectScript target = GetLastObject();
         if (target != null)

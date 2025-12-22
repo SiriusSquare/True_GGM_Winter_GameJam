@@ -1,6 +1,13 @@
 ﻿using DG.Tweening;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+
+public class UsedItemEvent
+{
+    public string type;
+    public UnityEvent onEvent;
+}
 
 public abstract class AbstractObjectScript : MonoBehaviour
 {
@@ -16,6 +23,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     protected Rigidbody2D objectRigidbody;
 
     [field: SerializeField] public bool Grabed { get; protected set; }
+    [field: SerializeField] public string[] UseableObjectType { get; protected set; }
     [field: SerializeField] public Transform GrabTarget { get; set; }
 
     [SerializeField] protected float grabDistance = 0.5f;
@@ -30,6 +38,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [SerializeField] protected UnityEvent onDrop;
     [SerializeField] protected UnityEvent onActive;
     [SerializeField] protected UnityEvent onDisable;
+    [SerializeField] protected UsedItemEvent[] useItemEvent;
     protected virtual void Awake()
     {
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
@@ -90,6 +99,16 @@ public abstract class AbstractObjectScript : MonoBehaviour
     public virtual void Interact()
     {
         onInteract?.Invoke();
+    }
+    public virtual void Use(string type)
+    {
+        foreach (UsedItemEvent a in useItemEvent)
+        {
+            if (a.type == type)
+            {
+                a.onEvent?.Invoke();
+            }
+        }
     }
 
     public virtual void Grab()
