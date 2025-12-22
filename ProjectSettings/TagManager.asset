@@ -50,6 +50,9 @@ TagManager:
   - name: Object
     uniqueID: 2223126115
     locked: 0
+  - name: Particle
+    uniqueID: 2627825381
+    locked: 0
   - name: Player
     uniqueID: 936332043
     locked: 0

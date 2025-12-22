@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.ComponentModel;
+
 #if UNITY_EDITOR
 using UnityEditor; // MonoScript 사용
 #endif
@@ -16,7 +18,7 @@ public class ObjectDetectionPad : MonoBehaviour
     public bool needColorCheck = false; // 색상 검사 여부
     public Color needColor;
 
-    [field:SerializeField] public bool isClear { get; private set; }
+    [field:SerializeField, _JJM.Script.CustomEditor.ReadOnly] public bool isClear { get; private set; }
 
     private void OnTriggerStay2D(Collider2D other)
     {
