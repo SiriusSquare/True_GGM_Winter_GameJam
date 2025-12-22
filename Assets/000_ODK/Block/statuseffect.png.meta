@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: e1eeb91b6a742fd4b8d375a241cf2134
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3943552146308284079
+    second: statuseffect_0
+  - first:
+      213: 8820113291923990757
+    second: statuseffect_1
+  - first:
+      213: -8882876177830674405
+    second: statuseffect_2
+  - first:
+      213: -1825859107346004272
+    second: statuseffect_3
+  - first:
+      213: 5693743175847648023
+    second: statuseffect_4
+  - first:
+      213: 3331097567820432841
+    second: statuseffect_5
+  - first:
+      213: 7488491866309427462
+    second: statuseffect_6
+  - first:
+      213: 3764924684619133237
+    second: statuseffect_7
+  - first:
+      213: -64026678495611058
+    second: statuseffect_8
+  - first:
+      213: -7791894083449477611
+    second: statuseffect_9
+  - first:
+      213: -6307332492390457984
+    second: statuseffect_10
+  - first:
+      213: 5494593173554523288
+    second: statuseffect_11
+  - first:
+      213: 6062171525831769802
+    second: statuseffect_12
+  - first:
+      213: -2937187330478344464
+    second: statuseffect_13
+  - first:
+      213: -4732353324074955889
+    second: statuseffect_14
+  - first:
+      213: -1942554107428866119
+    second: statuseffect_15
+  - first:
+      213: -3096293747261618228
+    second: statuseffect_16
+  - first:
+      213: -1008467278097858606
+    second: statuseffect_17
+  - first:
+      213: 2315470169362001913
+    second: statuseffect_18
+  - first:
+      213: 5388575828619112853
+    second: statuseffect_19
+  - first:
+      213: 1290732423642117918
+    second: statuseffect_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: statuseffect_0
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 687
+        width: 98
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151c01e7730b549c0800000000000000
+      internalID: -3943552146308284079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_1
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 704
+        width: 108
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8a4dbde46576a70800000000000000
+      internalID: 8820113291923990757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_2
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 704
+        width: 130
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b108f940e2fa9b480800000000000000
+      internalID: -8882876177830674405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 517
+        width: 129
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d6cab0d0de39a6e0800000000000000
+      internalID: -1825859107346004272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_4
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 567
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b14be604d340f40800000000000000
+      internalID: 5693743175847648023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_5
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 517
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5ca1ac69f6a3e20800000000000000
+      internalID: 3331097567820432841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_6
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 585
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60186ca3da77ce760800000000000000
+      internalID: 7488491866309427462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_7
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 517
+        width: 97
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 531b2d0ad03bf3430800000000000000
+      internalID: 3764924684619133237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_8
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 433
+        width: 41
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e47fe1c33188c1ff0800000000000000
+      internalID: -64026678495611058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_9
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 400
+        width: 64
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516a6844d91add390800000000000000
+      internalID: -7791894083449477611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_10
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 397
+        width: 52
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d99ce048ad778a0800000000000000
+      internalID: -6307332492390457984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_11
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 357
+        width: 145
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89ce0073167b04c40800000000000000
+      internalID: 5494593173554523288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_12
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 421
+        width: 22
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aceb0bc42e8212450800000000000000
+      internalID: 6062171525831769802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_13
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 359
+        width: 64
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f67f005fa30d37d0800000000000000
+      internalID: -2937187330478344464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_14
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 410
+        width: 38
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b8fde89bd435eb0800000000000000
+      internalID: -4732353324074955889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_15
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 341
+        width: 52
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7f9b5d459aa05e0800000000000000
+      internalID: -1942554107428866119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_16
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 341
+        width: 52
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc74532ed31c705d0800000000000000
+      internalID: -3096293747261618228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_17
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 394
+        width: 32
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df3f598a543102f0800000000000000
+      internalID: -1008467278097858606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_18
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 382
+        width: 22
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ffe5d4e9d3322020800000000000000
+      internalID: 2315470169362001913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_19
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 371
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 591391e8a2118ca40800000000000000
+      internalID: 5388575828619112853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: statuseffect_20
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 173
+        width: 127
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e17744bfc4a99e110800000000000000
+      internalID: 1290732423642117918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      statuseffect_0: -3943552146308284079
+      statuseffect_1: 8820113291923990757
+      statuseffect_10: -6307332492390457984
+      statuseffect_11: 5494593173554523288
+      statuseffect_12: 6062171525831769802
+      statuseffect_13: -2937187330478344464
+      statuseffect_14: -4732353324074955889
+      statuseffect_15: -1942554107428866119
+      statuseffect_16: -3096293747261618228
+      statuseffect_17: -1008467278097858606
+      statuseffect_18: 2315470169362001913
+      statuseffect_19: 5388575828619112853
+      statuseffect_2: -8882876177830674405
+      statuseffect_20: 1290732423642117918
+      statuseffect_3: -1825859107346004272
+      statuseffect_4: 5693743175847648023
+      statuseffect_5: 3331097567820432841
+      statuseffect_6: 7488491866309427462
+      statuseffect_7: 3764924684619133237
+      statuseffect_8: -64026678495611058
+      statuseffect_9: -7791894083449477611
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

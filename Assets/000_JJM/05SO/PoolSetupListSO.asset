@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5fcc5aebcefd8409031042cd344722, type: 3}
-  m_Name: ParticleDataSO
+  m_Script: {fileID: 11500000, guid: 8d2ffb9bfdfe8f846be8fda6dea8109a, type: 3}
+  m_Name: PoolSetupListSO
   m_EditorClassIdentifier: 
-  particleSystem:
-  - {fileID: 7885357998721644416, guid: 93eec8ec0ddd0b849971d6ef61e2ec41, type: 3}
-  - {fileID: 7710690677413154071, guid: db3d437454ed2cf4da1a1b6df38bd2bf, type: 3}
+  poolList: []
