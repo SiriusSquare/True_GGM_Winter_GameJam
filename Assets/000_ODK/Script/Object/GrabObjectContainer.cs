@@ -224,23 +224,29 @@ public class GrabObjectContainer : MonoBehaviour
 
         if (hit != null)
         {
-            if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript abstractObjectScript))
+            if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript abstractObjectScript) && abstractObjectScript.UseableObjectType.Length > 0)
             {
-                if (abstractObjectScript.UseableObjectType.Length > 0)
+                foreach (var useType in abstractObjectScript.UseableObjectType)
                 {
-                    foreach (var useType in abstractObjectScript.UseableObjectType)
+                    foreach (var grabObj in GrabArray)
                     {
-                        foreach (var grabObj in GrabArray)
+                        if (grabObj.ObjectType.Contains(useType))
                         {
-                            if (grabObj.ObjectType.Contains(useType))
+                            abstractObjectScript.Use(useType);
+                            if (grabObj.IsConsumerble)
                             {
-                                abstractObjectScript.Use(useType);
-                                return;
+                                
+                                grabObj.Consum(mouseWorldPos);
                             }
+                            else
+                            {
+                                grabObj.UseNoConsume(mouseWorldPos);
+                            }
+                                return;
                         }
                     }
                 }
-                
+
             }
             else
             {
