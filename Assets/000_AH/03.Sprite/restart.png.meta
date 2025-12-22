@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 212da3ede1eb08d468f9886bf64599e5
+guid: d49c5ea76dffea8418b1304d5eb9936f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 700903482093144493
-    second: 561184_0
-  - first:
-      213: -6016990498780903069
-    second: 561184_1
-  - first:
-      213: 5246231654678888099
-    second: 561184_2
-  - first:
-      213: 7841360251079116136
-    second: 561184_3
-  - first:
-      213: -9097226255350020568
-    second: 561184_4
-  - first:
-      213: -2690198860610596360
-    second: 561184_5
+      213: -3026058171327407114
+    second: restart_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 561184_0
+      name: restart_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 60
-        width: 512
-        height: 393
+        x: 41
+        y: 41
+        width: 430
+        height: 430
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da90fffd00c1ab900800000000000000
-      internalID: 700903482093144493
+      spriteID: 6fb9c5c30284106d0800000000000000
+      internalID: -3026058171327407114
       vertices: []
       indices: 
       edges: []
@@ -140,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d72c323207360354cb64c3232445bdee
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -150,12 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      561184_0: 700903482093144493
-      561184_1: -6016990498780903069
-      561184_2: 5246231654678888099
-      561184_3: 7841360251079116136
-      561184_4: -9097226255350020568
-      561184_5: -2690198860610596360
+      restart_0: -3026058171327407114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
