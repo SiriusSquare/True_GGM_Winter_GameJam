@@ -19,7 +19,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [SerializeField] protected float grabDistance = 0.5f;
     [SerializeField] protected float followSpeed = 15f;
     [SerializeField] protected float gridSize = 1f;
-
+    [SerializeField] private Ease ease = Ease.Linear;
     protected GameObject player;
 
     protected virtual void Awake()
@@ -41,14 +41,14 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         if (!Activated || Grabed || selectRenderer == null) return;
 
-        selectRenderer.DOFade(0.3f, 0.15f);
+        selectRenderer.DOFade(0.3f, 0.15f).SetEase(ease);
     }
 
     public virtual void MouseExit()
     {
         if (!Activated || Grabed || selectRenderer == null) return;
 
-        selectRenderer.DOFade(0f, 0.15f);
+        selectRenderer.DOFade(0f, 0.15f).SetEase(ease);
     }
 
     public virtual void MouseDown()
@@ -75,13 +75,13 @@ public abstract class AbstractObjectScript : MonoBehaviour
         grabTarget = player.transform;
 
         if (selectRenderer != null)
-            selectRenderer.DOFade(0f, 0.1f);
+            selectRenderer.DOFade(0f, 0.1f).SetEase(ease);
 
         if (objectRigidbody != null)
         {
             objectRigidbody.linearVelocity = Vector2.zero;
-            objectRigidbody.isKinematic = true;
         }
+        player.GetComponent<GrabObjectContainer>().ArrayAdd(this);
     }
 
     protected virtual void FixedUpdate()
@@ -120,9 +120,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
         float snapX = Mathf.Round(worldPos.x / gridSize) * gridSize;
         float snapY = Mathf.Round(worldPos.y / gridSize) * gridSize;
 
-        transform.position = new Vector3(snapX, snapY, transform.position.z);
-
-        if (objectRigidbody != null)
-            objectRigidbody.isKinematic = false;
+        transform.DOMove(new Vector3(snapX, snapY, transform.position.z), 0.1f).SetEase(ease);
+        player.GetComponent<GrabObjectContainer>().ArrayRemove(this);
     }
 }

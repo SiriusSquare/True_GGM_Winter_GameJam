@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GrabObjectContainer : MonoBehaviour
 {
     [SerializeField] private LayerMask objectLayer;
+    [SerializeField] private LayerMask noDropLayer;
     [SerializeField] private Vector2 gridSize = Vector2.one; // 타일 1칸 크기
+    
 
     private AbstractObjectScript currentHover;
     [field:SerializeField] public List<AbstractObjectScript> GrabArray { get; private set; }
+
     void Update()
     {
         UpdateHover();
@@ -33,6 +38,12 @@ public class GrabObjectContainer : MonoBehaviour
             }
         }
         return null;
+    }
+    public AbstractObjectScript GetLastObject()
+    {
+        if (GrabArray.Count == 0)
+            return null;
+        return GrabArray[GrabArray.Count - 1];
     }
     void UpdateHover()
     {
@@ -77,13 +88,45 @@ public class GrabObjectContainer : MonoBehaviour
 
     void HandleClick()
     {
-        if (currentHover == null) return;
-
+        // 좌클릭 : 선택된 오브젝트
         if (Input.GetMouseButtonDown(0))
         {
-            currentHover.MouseDown();
+            if (currentHover != null)
+            {
+                currentHover.MouseDown();
+            }
+        }
+
+        // 우클릭 : 사거리 내 가장 가까운 오브젝트
+        if (Input.GetMouseButtonDown(1))
+        {
+            HandleRightClick();
         }
     }
+    void HandleRightClick()
+    {
+        Camera cam = Camera.main;
+        if (cam == null) return;
+
+        Vector3 mp = Input.mousePosition;
+        mp.z = -cam.transform.position.z;
+        Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mp);
+
+        // ① 사거리 체크
+        if (!IsInside3x3(mouseWorldPos))
+            return;
+
+        // ② 해당 위치에 NoDrop 오브젝트가 있으면 드롭 금지
+        if (Physics2D.OverlapPoint(mouseWorldPos, noDropLayer) != null)
+            return;
+
+        AbstractObjectScript target = GetLastObject();
+        if (target != null)
+        {
+            target.Down(mouseWorldPos);
+        }
+    }
+
 
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
