@@ -240,7 +240,7 @@ public class GrabObjectContainer : MonoBehaviour
                             }
                             else
                             {
-                                grabObj.Down(mouseWorldPos);
+                                grabObj.UseNoConsume(mouseWorldPos);
                             }
                                 return;
                         }

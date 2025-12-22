@@ -13,10 +13,12 @@ public class UsedItemEvent
 
 public abstract class AbstractObjectScript : MonoBehaviour
 {
+    [field:SerializeField] public bool Triggerable { get; protected set; }
     [field: SerializeField] public bool NoActiveChange { get; protected set; }
     [field: SerializeField] public string[] ObjectType { get; protected set; }
     [field: SerializeField] public bool Activated { get; protected set; } = true;
     [field: SerializeField] public bool isGrabable { get; protected set; }
+    [field: SerializeField] public bool isInteractable { get; protected set; } = true;
     [field: SerializeField] public Color ObjectColor { get; protected set; } = Color.white;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] protected SpriteRenderer selectRenderer;
@@ -41,6 +43,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [SerializeField] protected UnityEvent onDrop;
     [SerializeField] protected UnityEvent onActive;
     [SerializeField] protected UnityEvent onDisable;
+    [SerializeField] protected UnityEvent onTrigger;
     [SerializeField] protected UsedItemEvent[] useItemEvent;
     protected virtual void Awake()
     {
@@ -90,7 +93,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
     public virtual void MouseDown()
     {
-        if (!Activated || Grabed) return;
+        if (!Activated || Grabed || !isInteractable) return;
 
         Interact();
     }
@@ -170,6 +173,11 @@ public abstract class AbstractObjectScript : MonoBehaviour
         }
     }
 
+    public virtual void Trigger()
+    {
+        onTrigger?.Invoke();
+    }
+
     public virtual void Down(Vector3 Pos)
     {
         if (!Grabed) return;
@@ -211,6 +219,40 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         player.GetComponent<GrabObjectContainer>().ArrayRemove(this);
         
+    }
+
+    public void UseNoConsume(Vector3 Pos)
+    {
+        float snapX = Mathf.Round(Pos.x / gridSize) * gridSize;
+        float snapY = Mathf.Round(Pos.y / gridSize) * gridSize;
+
+        Vector3 dropPos = new Vector3(snapX, snapY, transform.position.z);
+        transform.DOMove(dropPos, 0.1f)
+            .SetEase(ease)
+            .OnComplete(() =>
+            {
+                // 🔍 콜라이더 크기로 겹침 검사
+                bool blocked = Physics2D.OverlapBox(
+                    dropPos,
+                    objectCollider.bounds.size,
+                    0f,
+                    blockLayer
+                );
+
+                if (blocked)
+                {
+                    GrabTarget = player.transform;
+                    return;
+                }
+
+                if (objectRigidbody != null)
+                    objectRigidbody.linearVelocity = Vector2.zero;
+
+                onDrop?.Invoke();
+
+            });
+
+
     }
     public virtual void Consum(Vector3 Pos)
     {
