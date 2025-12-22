@@ -34,7 +34,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [SerializeField] protected float grabDistance = 0.5f;
     [SerializeField] protected float followSpeed = 15f;
     [SerializeField] protected float gridSize = 1f;
-    private Ease ease = Ease.OutQuad;
+    protected Ease ease = Ease.OutQuad;
     protected GameObject player;
     [SerializeField] private LayerMask blockLayer;
 
@@ -68,7 +68,6 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         Activated = true;
         objectCollider.isTrigger = false;
-        Debug.Log("Activated");
         spriteRenderer.DOFade(1f, 0.2f).SetEase(ease);
         onActive?.Invoke();
     }
@@ -76,7 +75,6 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         Activated = false;
         objectCollider.isTrigger = true;
-        Debug.Log("Disabled");
         spriteRenderer.DOFade(0.4f, 0.2f).SetEase(ease);
         onDisable?.Invoke();
     }
