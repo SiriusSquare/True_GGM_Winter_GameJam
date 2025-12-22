@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
 public abstract class AbstractObjectScript : MonoBehaviour
@@ -13,15 +13,15 @@ public abstract class AbstractObjectScript : MonoBehaviour
     protected Collider2D objectCollider;
     protected Rigidbody2D objectRigidbody;
 
-    protected bool Grabed;
+    [field: SerializeField] public bool Grabed { get; protected set; }
     protected Transform grabTarget;
 
     [SerializeField] protected float grabDistance = 0.5f;
     [SerializeField] protected float followSpeed = 15f;
     [SerializeField] protected float gridSize = 1f;
-    [SerializeField] private Ease ease = Ease.Linear;
+    private Ease ease = Ease.OutQuad;
     protected GameObject player;
-
+    [SerializeField] private LayerMask blockLayer;
     protected virtual void Awake()
     {
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
@@ -73,7 +73,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         Grabed = true;
         grabTarget = player.transform;
-
+        objectCollider.enabled = false;
         if (selectRenderer != null)
             selectRenderer.DOFade(0f, 0.1f).SetEase(ease);
 
@@ -115,12 +115,38 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         Grabed = false;
 
-        Vector3 worldPos = Pos;
+        float snapX = Mathf.Round(Pos.x / gridSize) * gridSize;
+        float snapY = Mathf.Round(Pos.y / gridSize) * gridSize;
 
-        float snapX = Mathf.Round(worldPos.x / gridSize) * gridSize;
-        float snapY = Mathf.Round(worldPos.y / gridSize) * gridSize;
+        Vector3 dropPos = new Vector3(snapX, snapY, transform.position.z);
 
-        transform.DOMove(new Vector3(snapX, snapY, transform.position.z), 0.1f).SetEase(ease);
+        transform.DOMove(dropPos, 0.1f)
+            .SetEase(ease)
+            .OnComplete(() =>
+            {
+                // 🔍 콜라이더 크기로 겹침 검사
+                bool blocked = Physics2D.OverlapBox(
+                    dropPos,
+                    objectCollider.bounds.size,
+                    0f,
+                    blockLayer
+                );
+
+                if (blocked)
+                {
+                    // ❌ 겹치면 다시 들고 있게 처리
+                    Grabed = true;
+                    grabTarget = player.transform;
+                    return;
+                }
+
+                // ✅ 안전하면 콜라이더 ON
+                objectCollider.enabled = true;
+
+                if (objectRigidbody != null)
+                    objectRigidbody.linearVelocity = Vector2.zero;
+            });
+
         player.GetComponent<GrabObjectContainer>().ArrayRemove(this);
     }
 }
