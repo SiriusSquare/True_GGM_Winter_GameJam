@@ -2772,7 +2772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff18039d3e9805d4ea59329594e8a86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stages:
+  <stages>k__BackingField:
   - stageName: Stage1
     nodeObject: {fileID: 877878436}
   - stageName: Stage2

@@ -56,10 +56,10 @@ public class UIManager : MonoSingleton<UIManager>
     }
     private IEnumerator Start()
     {
-        if (AH_StageManager.Instance != null)
+        if (AH_StageManager.Instance != null && AH_StageManager.Instance.stages != null)
         {
-            string stageName = AH_StageManager.Instance.GetCurrentStageName();
-            SetStageText(stageName);
+            string currentName = AH_StageManager.Instance.GetCurrentStageName();
+            SetStageText(currentName);
         }
         else
         {

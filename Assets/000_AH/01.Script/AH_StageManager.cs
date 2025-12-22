@@ -15,7 +15,7 @@ public class StageData
 public class AH_StageManager : MonoSingleton<AH_StageManager>
 {
     [Header("StageList")]
-    [SerializeField] private List<StageData> stages;
+    [field: SerializeField] public List<StageData> stages { get; set; }
 
     [Header("Design Setting")]
     [SerializeField] private float lineWidth = 0.5f;
@@ -59,7 +59,10 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
         if (lineMaterial == null)
             lineMaterial = new Material(Shader.Find("Sprites/Default"));
 
-        InitializeMap();
+        if (stages != null)
+        {
+            InitializeMap();
+        }
         UpdateVisibility();
     }
     private void UpdateVisibility()
@@ -83,7 +86,7 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
     private void InitializeMap()
     {
         runtimeLines.Clear();
-
+        
         for (int i = 0; i < stages.Count; i++)
         {
             if (stages[i].nodeObject != null)
