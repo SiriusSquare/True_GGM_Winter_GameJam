@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class GrabObjectContainer : MonoBehaviour
 {
@@ -199,29 +200,30 @@ public class GrabObjectContainer : MonoBehaviour
         }
     }
 
-
+    Vector2Int WorldToGrid(Vector3 worldPos)
+    {
+        return new Vector2Int(
+            Mathf.RoundToInt(worldPos.x / gridSize.x),
+            Mathf.RoundToInt(worldPos.y / gridSize.y)
+        );
+    }
     void HandleRightClick()
     {
         Camera cam = Camera.main;
         if (cam == null) return;
-
         Vector3 mp = Input.mousePosition;
         mp.z = -cam.transform.position.z;
         Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mp);
 
         if (!IsInside3x3(mouseWorldPos)) return;
 
-        // 🔹 수정된 부분: OverlapPoint 대신 사용 (트리거 포함 감지)
-        // true를 인자로 넣으면 트리거콜라이더도 감지합니다.
+        Vector2Int mouseGrid = WorldToGrid(mouseWorldPos);
+        Vector2Int selfGrid = WorldToGrid(transform.position);
+
+        // 🔥 자기 위치 아래 설치 금지
+        if (mouseGrid == selfGrid)
+            return;
         Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, noDropLayer);
-
-        // 만약 일반 OverlapPoint가 트리거를 못 잡는다면 아래 방식을 사용하세요
-        /*
-        Collider2D hit = null;
-        Collider2D[] results = Physics2D.OverlapPointAll(mouseWorldPos, noDropLayer);
-        if (results.Length > 0) hit = results[0];
-        */
-
         if (hit != null)
         {
             if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript abstractObjectScript) && abstractObjectScript.UseableObjectType.Length > 0)
