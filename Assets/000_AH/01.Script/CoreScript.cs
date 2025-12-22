@@ -8,6 +8,16 @@ public class CoreScript : MonoSingleton<CoreScript>
     [SerializeField] private AudioMixer audioMixer;
 
     // ===== Settings =====
+    public float MasterSetting
+    {
+        get => _master;
+        set
+        {
+            _master = Mathf.Clamp01(value);
+            ApplyMaster();
+            PlayerPrefs.SetFloat("MasterSetting", _master);
+        }
+    }
     public float BGMSetting
     {
         get => _bgm;
@@ -44,6 +54,7 @@ public class CoreScript : MonoSingleton<CoreScript>
     public bool isPause = false;
 
     // ===== Backing Fields =====
+    private float _master;
     private float _bgm;
     private float _sfx;
     private int _resolutionIndex;
@@ -54,6 +65,7 @@ public class CoreScript : MonoSingleton<CoreScript>
 
         _bgm = PlayerPrefs.GetFloat("BGMSetting", 0.5f);
         _sfx = PlayerPrefs.GetFloat("SFXSetting", 0.5f);
+        _master = PlayerPrefs.GetFloat("MasterSetting", 0.5f);
         _resolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", 0);
 
         ApplyAll();
@@ -65,6 +77,10 @@ public class CoreScript : MonoSingleton<CoreScript>
     {
         ApplyBGM();
         ApplySFX();
+    }
+    private void ApplyMaster()
+    {
+        audioMixer.SetFloat("MasterVolume", LinearToDb(_master));
     }
 
     private void ApplyBGM()

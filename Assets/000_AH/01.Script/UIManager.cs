@@ -13,10 +13,6 @@ public class UIManager : MonoSingleton<UIManager>
 
     [SerializeField] private Image _resetImage;
 
-    [SerializeField]private TMP_Dropdown resolutionDropdown;
-
-    private Resolution[] resolutions;
-
     public void OnPointerEnterRotate()
     {
         if (_resetImage != null)
@@ -26,8 +22,7 @@ public class UIManager : MonoSingleton<UIManager>
             _resetImage.transform.DOKill();
 
             _resetImage.transform.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.LocalAxisAdd)
-                .SetEase(Ease.OutCubic)
-                .SetUpdate(true);
+                .SetEase(Ease.OutCubic);
         }
     }
     public void SetStageText(string stage)
@@ -38,36 +33,5 @@ public class UIManager : MonoSingleton<UIManager>
     public void MenuClick()
     {
 
-    }
-    private void Start()
-    {
-        resolutions = Screen.resolutions;
-
-        resolutionDropdown.ClearOptions();
-
-        HashSet<string> options = new HashSet<string>();
-
-        int currentResolutionIndex = 0;
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-
-        resolutionDropdown.AddOptions(new List<string>(options));
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
-    }
-
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 }
