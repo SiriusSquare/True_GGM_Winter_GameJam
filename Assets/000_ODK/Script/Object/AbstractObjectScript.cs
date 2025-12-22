@@ -45,8 +45,12 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [SerializeField] protected UnityEvent onDisable;
     [SerializeField] protected UnityEvent onTrigger;
     [SerializeField] protected UsedItemEvent[] useItemEvent;
+
+    private PlayerFlip _flip;
+
     protected virtual void Awake()
     {
+        _flip = FindFirstObjectByType<PlayerFlip>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
 
         objectCollider = GetComponent<Collider2D>();
@@ -166,6 +170,8 @@ public abstract class AbstractObjectScript : MonoBehaviour
                     followSpeed * Time.fixedDeltaTime
                 )
             );
+
+            transform.rotation = _flip.transform.rotation;
         }
         else
         {
