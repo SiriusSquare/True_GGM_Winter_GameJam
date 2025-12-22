@@ -119,6 +119,233 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &38979600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 38979605}
+  - component: {fileID: 38979604}
+  - component: {fileID: 38979603}
+  - component: {fileID: 38979602}
+  - component: {fileID: 38979601}
+  m_Layer: 9
+  m_Name: Wall (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &38979601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38979600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 1
+  <ObjectType>k__BackingField:
+  - SA
+  <Activated>k__BackingField: 1
+  <isGrabable>k__BackingField: 0
+  <ObjectColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+  spriteRenderer: {fileID: 38979604}
+  selectRenderer: {fileID: 102662407}
+  <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField:
+  - Electric
+  <GrabTarget>k__BackingField: {fileID: 0}
+  grabDistance: 0.5
+  followSpeed: 15
+  gridSize: 1
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  onActive:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  useItemEvent:
+  - type: Electric
+    onEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 38979601}
+          m_TargetAssemblyTypeName: TestObject, Assembly-CSharp
+          m_MethodName: Disable
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!50 &38979602
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38979600}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &38979603
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38979600}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &38979604
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38979600}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -2071841181
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -5356574185940491189, guid: c7e2c3dc36cc95d4f953319d0f0a57e5, type: 3}
+  m_Color: {r: 0.4264151, g: 0.4264151, b: 0.4264151, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &38979605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38979600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 102662408}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &64180895
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +753,93 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &102662406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102662408}
+  - component: {fileID: 102662407}
+  m_Layer: 9
+  m_Name: asss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &102662407
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102662406}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -2071841181
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &102662408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102662406}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 38979605}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &114161002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5400,6 +5714,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 238924568}
   selectRenderer: {fileID: 82488119}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -5422,6 +5738,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
 --- !u!50 &238924566
 Rigidbody2D:
   serializedVersion: 5
@@ -6020,6 +6337,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 421215486}
   selectRenderer: {fileID: 1838090247}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -6042,6 +6361,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
 --- !u!50 &421215484
 Rigidbody2D:
   serializedVersion: 5
@@ -6227,6 +6547,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 502469256}
   selectRenderer: {fileID: 1102614075}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -6249,6 +6571,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
 --- !u!50 &502469254
 Rigidbody2D:
   serializedVersion: 5
@@ -6513,6 +6836,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 690174144}
   selectRenderer: {fileID: 349020296}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -6535,6 +6860,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
 --- !u!50 &690174142
 Rigidbody2D:
   serializedVersion: 5
@@ -7068,6 +7394,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1068912037}
   selectRenderer: {fileID: 349968265}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -7090,6 +7418,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
 --- !u!50 &1068912035
 Rigidbody2D:
   serializedVersion: 5
@@ -7354,13 +7683,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <NoActiveChange>k__BackingField: 0
-  <ObjectType>k__BackingField: []
+  <ObjectType>k__BackingField:
+  - Electric
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 1
   <ObjectColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 1290743561}
   selectRenderer: {fileID: 1771740407}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -7383,6 +7715,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
 --- !u!50 &1290743559
 Rigidbody2D:
   serializedVersion: 5
@@ -7852,6 +8185,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1500825251}
   selectRenderer: {fileID: 1567804570}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -7874,6 +8209,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
 --- !u!50 &1500825249
 Rigidbody2D:
   serializedVersion: 5
@@ -8379,6 +8715,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1606474965}
   selectRenderer: {fileID: 857693113}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -8401,6 +8739,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
   switched: 0
   switchedOnSpriteRenderer: {fileID: 1588599158}
   switchedOffSpriteRenderer: {fileID: 64180897}
@@ -13501,6 +13840,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1812046421}
   selectRenderer: {fileID: 1000951988}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
@@ -13523,6 +13864,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  useItemEvent: []
 --- !u!50 &1812046419
 Rigidbody2D:
   serializedVersion: 5
@@ -14280,6 +14622,7 @@ SceneRoots:
   - {fileID: 421215487}
   - {fileID: 690174145}
   - {fileID: 1068912038}
+  - {fileID: 38979605}
   - {fileID: 1352719940}
   - {fileID: 566733332}
   - {fileID: 1857603086}

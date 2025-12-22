@@ -1,8 +1,10 @@
 ﻿using DG.Tweening;
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Serializable]
 public class UsedItemEvent
 {
     public string type;
@@ -23,6 +25,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     protected Rigidbody2D objectRigidbody;
 
     [field: SerializeField] public bool Grabed { get; protected set; }
+    [field: SerializeField] public bool IsConsumerble { get; protected set; }
     [field: SerializeField] public string[] UseableObjectType { get; protected set; }
     [field: SerializeField] public Transform GrabTarget { get; set; }
 
@@ -207,6 +210,52 @@ public abstract class AbstractObjectScript : MonoBehaviour
             });
 
         player.GetComponent<GrabObjectContainer>().ArrayRemove(this);
+        
+    }
+    public virtual void Consum(Vector3 Pos)
+    {
+        if (!Grabed) return;
+
+        Grabed = false;
+
+        float snapX = Mathf.Round(Pos.x / gridSize) * gridSize;
+        float snapY = Mathf.Round(Pos.y / gridSize) * gridSize;
+
+        Vector3 dropPos = new Vector3(snapX, snapY, transform.position.z);
+        
+        transform.DOMove(dropPos, 0.1f)
+            .SetEase(ease)
+            .OnComplete(() =>
+            {
+                // 🔍 콜라이더 크기로 겹침 검사
+                bool blocked = Physics2D.OverlapBox(
+                    dropPos,
+                    objectCollider.bounds.size,
+                    0f,
+                    blockLayer
+                );
+
+                if (blocked)
+                {
+                    // ❌ 겹치면 다시 들고 있게 처리
+                    Grabed = true;
+                    GrabTarget = player.transform;
+                    return;
+                }
+
+                // ✅ 안전하면 콜라이더 ON
+                objectCollider.enabled = true;
+
+                if (objectRigidbody != null)
+                    objectRigidbody.linearVelocity = Vector2.zero;
+                player.GetComponent<GrabObjectContainer>().ArrayRemove(this);
+
+                onDrop?.Invoke();
+                spriteRenderer.DOFade(0f, 0.1f).SetEase(ease).OnComplete(()=> GameObject.Destroy(this.gameObject));
+                
+            });
+
+        
         
     }
 }
