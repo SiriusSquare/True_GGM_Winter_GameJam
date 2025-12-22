@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace _JJM.Script
+namespace 
+    _JJM.Script
 {
     public static class Utils
     {
@@ -33,6 +34,7 @@ namespace _JJM.Script
 
             return (int)value;
         }
+
 
 
 
