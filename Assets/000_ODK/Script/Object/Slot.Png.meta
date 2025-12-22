@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: a53abead0a9b57243a2ecf8182f00f23
+guid: ad78fb6b56c55f647968d2f7ece37101
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1245607685602816333
-    second: "\uBB34\uC81C(2)_0"
+      213: 8417420941954122440
+    second: Slot_0
+  - first:
+      213: 7220648799473819815
+    second: Slot_1
+  - first:
+      213: -1540320768780566360
+    second: Slot_2
+  - first:
+      213: -7858853523526743299
+    second: Slot_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uBB34\uC81C(2)_0"
+      name: Slot_0
       rect:
         serializedVersion: 2
         x: 0
@@ -108,15 +117,81 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3bec522d866b6bee0800000000000000
-      internalID: -1245607685602816333
+      spriteID: 8c20c12dfbfa0d470800000000000000
+      internalID: 8417420941954122440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slot_1
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 649
+        width: 351
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0ec7493d5e43460800000000000000
+      internalID: 7220648799473819815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slot_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 351
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a08da8fb6eaf9ae0800000000000000
+      internalID: -1540320768780566360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slot_3
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 0
+        width: 351
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa8c5cbb5ebfe290800000000000000
+      internalID: -7858853523526743299
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c2251b254b31e6442ac685511d8459de
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\uBB34\uC81C(2)_0": -1245607685602816333
+      Slot_0: 8417420941954122440
+      Slot_1: 7220648799473819815
+      Slot_2: -1540320768780566360
+      Slot_3: -7858853523526743299
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

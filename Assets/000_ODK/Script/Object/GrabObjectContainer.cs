@@ -10,6 +10,9 @@ public class GrabObjectContainer : MonoBehaviour
     [SerializeField] private Vector2 gridSize = Vector2.one; // 타일 1칸 크기
     [SerializeField] private int maxCapacity = 1;
 
+    private Vector2Int mouseVector;
+    [SerializeField] private Transform mouseEffect;
+
     private AbstractObjectScript currentHover;
     [field:SerializeField] public List<AbstractObjectScript> GrabArray { get; private set; }
 
@@ -19,13 +22,90 @@ public class GrabObjectContainer : MonoBehaviour
         HandleClick();
     }
 
+    public float fadeDistance = 3f; // 마우스와의 거리 기준
+    public float fadeDuration = 0.2f;
+
+    public void FixedUpdate()
+    {
+        if (Camera.main == null) return;
+
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0;
+
+        // 월드 위치 → 그리드 정수 좌표(Vector2Int)로 변환
+        Vector2Int snappedGrid = new Vector2Int(
+            Mathf.RoundToInt(mouseWorldPos.x / gridSize.x),
+            Mathf.RoundToInt(mouseWorldPos.y / gridSize.y)
+        );
+
+        // 위치 변경 시만 이동
+        if (snappedGrid != mouseVector)
+        {
+            mouseVector = snappedGrid;
+
+            Vector3 snappedPos = new Vector3(
+                mouseVector.x * gridSize.x,
+                mouseVector.y * gridSize.y,
+                0f
+            );
+
+            if (mouseEffect != null)
+            {
+                mouseEffect.DOMove(snappedPos, 0.1f).SetEase(Ease.OutQuad);
+            }
+        }
+
+        if (mouseEffect != null)
+        {
+            // 1. 실제 마우스 월드 위치와 효과의 현재 위치 사이의 거리 계산
+            float distance = Vector3.Distance(transform.position, mouseEffect.position);
+
+            // 2. 거리 조건에 따른 Fade 처리 (1.5 이상이면 투명하게, 미만이면 불투명하게)
+            // SpriteRenderer 또는 CanvasGroup 등 컴포넌트에 따라 DOFade를 호출합니다.
+            // 여기서는 SpriteRenderer 기준으로 예시를 작성합니다.
+            float targetAlpha = !IsInside3x3(snappedGrid) ? 0f : 1f;
+
+            // GetComponent를 매번 호출하는 것보다 캐싱해두는 것이 좋지만, 
+            // 일단 구조에 맞춰 작성합니다.
+            SpriteRenderer sr = mouseEffect.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                // 현재 알파값과 목표값이 다를 때만 트윈 실행 (최적화)
+                if (!Mathf.Approximately(sr.color.a, targetAlpha))
+                {
+                    sr.DOKill(); // 기존 트윈 중단
+                    sr.DOFade(targetAlpha, 0.1f).SetEase(Ease.OutQuad);
+                }
+            }
+        }
+
+    }
+
+
+
+
     public void ArrayAdd(AbstractObjectScript abstractObjectScript)
     {
         GrabArray.Add(abstractObjectScript);
     }
     public void ArrayRemove(AbstractObjectScript abstractObjectScript)
     {
+        if (!GrabArray.Contains(abstractObjectScript)) return;
+
         GrabArray.Remove(abstractObjectScript);
+
+        // 리스트 재정렬: 남은 오브젝트들의 타겟을 다시 설정
+        for (int i = 0; i < GrabArray.Count; i++)
+        {
+            if (i == 0)
+            {
+                GrabArray[i].GrabTarget = this.transform; // 첫 번째는 컨테이너(플레이어)를 따라감
+            }
+            else
+            {
+                GrabArray[i].GrabTarget = GrabArray[i - 1].transform; // 나머지는 앞의 오브젝트를 따라감
+            }
+        }
     }
     public AbstractObjectScript GetObjectByType(string type)
     {

@@ -7,7 +7,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [field: SerializeField] public string[] ObjectType { get; protected set; }
     [field: SerializeField] public bool Activated { get; protected set; } = true;
     [field: SerializeField] public bool isGrabable { get; protected set; }
-
+    [field: SerializeField] public Color ObjectColor { get; protected set; } = Color.white;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] protected SpriteRenderer selectRenderer;
 
@@ -15,7 +15,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     protected Rigidbody2D objectRigidbody;
 
     [field: SerializeField] public bool Grabed { get; protected set; }
-    protected Transform grabTarget;
+    [field: SerializeField] public Transform GrabTarget { get; set; }
 
     [SerializeField] protected float grabDistance = 0.5f;
     [SerializeField] protected float followSpeed = 15f;
@@ -35,7 +35,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         objectCollider = GetComponent<Collider2D>();
         objectRigidbody = GetComponent<Rigidbody2D>();
-
+       
         if (selectRenderer != null)
             selectRenderer.color = new Color(1, 1, 1, 0);
     }
@@ -47,14 +47,18 @@ public abstract class AbstractObjectScript : MonoBehaviour
     public virtual void Active()
     {
         Activated = true;
+        objectCollider.isTrigger = false;
+        Debug.Log("Activated");
         spriteRenderer.DOFade(1f, 0.2f).SetEase(ease);
-        onActive.Invoke();
+        onActive?.Invoke();
     }
     public virtual void Disable()
     {
         Activated = false;
-        spriteRenderer.DOFade(1f, 0.2f).SetEase(ease);
-        onActive.Invoke();
+        objectCollider.isTrigger = true;
+        Debug.Log("Disabled");
+        spriteRenderer.DOFade(0.4f, 0.2f).SetEase(ease);
+        onDisable?.Invoke();
     }
 
     public virtual void MouseEnter()
@@ -84,7 +88,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
     public virtual void Interact()
     {
-        Grab();
+        onInteract?.Invoke();
     }
 
     public virtual void Grab()
@@ -92,7 +96,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
         if (!isGrabable || !Activated) return;
 
         Grabed = true;
-        grabTarget = player.transform;
+        
         objectCollider.enabled = false;
         if (selectRenderer != null)
             selectRenderer.DOFade(0f, 0.1f).SetEase(ease);
@@ -101,14 +105,28 @@ public abstract class AbstractObjectScript : MonoBehaviour
         {
             objectRigidbody.linearVelocity = Vector2.zero;
         }
+        if (player.TryGetComponent<GrabObjectContainer>(out var detectTrigger))
+        {
+            if (detectTrigger.GrabArray.Count > 0)
+            {
+                GrabTarget = detectTrigger.GetLastObject().transform;
+            }
+            else
+            {
+                GrabTarget = player.transform;
+            }
+
+        }
         player.GetComponent<GrabObjectContainer>().ArrayAdd(this);
+        
+        onGrab?.Invoke();
     }
 
     protected virtual void FixedUpdate()
     {
-        if (!Grabed || grabTarget == null) return;
+        if (!Grabed || GrabTarget == null) return;
 
-        Vector2 targetPos = grabTarget.position;
+        Vector2 targetPos = GrabTarget.position;
 
         Vector2 dir = ((Vector2)transform.position - targetPos).normalized;
         targetPos += dir * grabDistance;
@@ -156,7 +174,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
                 {
                     // ❌ 겹치면 다시 들고 있게 처리
                     Grabed = true;
-                    grabTarget = player.transform;
+                    GrabTarget = player.transform;
                     return;
                 }
 
@@ -168,5 +186,6 @@ public abstract class AbstractObjectScript : MonoBehaviour
             });
 
         player.GetComponent<GrabObjectContainer>().ArrayRemove(this);
+        onDrop?.Invoke();
     }
 }
