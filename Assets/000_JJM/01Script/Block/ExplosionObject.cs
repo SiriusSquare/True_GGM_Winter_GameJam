@@ -1,13 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class ExplosionObject : MonoBehaviour
+public class ExplosionObject : MonoBehaviour, IPoolable
 {
     [SerializeField] private Vector2 _size;
     [SerializeField] private Vector2 _offset;
     [SerializeField] private Color _color;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private ParticleSystem _explosionParticle;
+
+    public string ItemName => "Explosion";
+
+    public GameObject GameObject => gameObject;
 
     private void OnEnable()
     {
@@ -29,7 +33,7 @@ public class ExplosionObject : MonoBehaviour
     private IEnumerator EndTime()
     {
         yield return new WaitForSeconds(_explosionParticle.main.startLifetime.constant);
-        gameObject.SetActive(false);
+        PoolManager.Instance.Push(gameObject);
     }
 
     private void OnDrawGizmos()
@@ -37,5 +41,10 @@ public class ExplosionObject : MonoBehaviour
         Gizmos.color = _color;
         
         Gizmos.DrawCube(transform.position + (Vector3)_offset, _size);
+    }
+
+    public void ResetItem()
+    {
+        
     }
 }
