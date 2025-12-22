@@ -2,6 +2,7 @@ using UnityEngine;
 using Code.Core;
 using DG.Tweening;
 using UnityEngine.UI;
+using System.Collections;
 
 public class FadeManager : MonoSingleton<FadeManager>
 {

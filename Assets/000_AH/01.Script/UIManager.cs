@@ -1,7 +1,9 @@
 using Code.Core;
 using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
@@ -12,9 +14,11 @@ public class UIManager : MonoSingleton<UIManager>
 
     [SerializeField] private Image _resetImage;
 
-    [SerializeField] private Button _resetBtn;
+    private Button _resetBtn;
 
     [SerializeField] private SettingManager _settingManager;
+
+    [SerializeField] private TextMeshProUGUI _gameStartText;
 
 
     [Header("Menu Animation")]
@@ -30,6 +34,10 @@ public class UIManager : MonoSingleton<UIManager>
     protected override void Awake()
     {
         base.Awake();
+        if (_gameStartText != null)
+        {
+            _gameStartText.transform.DOScale(1, 0.1f);
+        }
         _resetBtn = _resetImage.GetComponent<Button>();
         if (_menuParent != null)
         {
@@ -40,8 +48,37 @@ public class UIManager : MonoSingleton<UIManager>
             }
             _menuParent.SetActive(false);
         }
-    }
+        if (_resetBtn != null)
+        {
+            _resetBtn.onClick.AddListener(Reset123);
+        }
 
+    }
+    private IEnumerator Start()
+    {
+        if (AH_StageManager.Instance != null)
+        {
+            string stageName = AH_StageManager.Instance.GetCurrentStageName();
+            SetStageText(stageName);
+        }
+        else
+        {
+            SetStageText(SceneManager.GetActiveScene().name);
+        }
+        if (_gameStartText != null)
+        {
+            yield return new WaitForSeconds(1);
+            _gameStartText.gameObject.SetActive(true);
+            _gameStartText.DOColor(new Color(1,1,1,0), 1f).SetUpdate(true);
+        }
+    }
+    protected override void OnDestroy()
+    {
+        if (_resetBtn != null)
+        {
+            _resetBtn.onClick.RemoveListener(Reset123);
+        }
+    }
     private void Update()
     {
         if (Time.timeScale == 0f)
@@ -60,11 +97,21 @@ public class UIManager : MonoSingleton<UIManager>
             MenuClick();
         }
     }
+
+    public void Reset123()
+    {
+        _resetBtn.interactable = false;
+        StartCoroutine(ResetBtn());
+    }
+    public IEnumerator ResetBtn()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneChangeManager.Instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void OnPointerEnterRotate()
     {
         if (_resetImage != null)
         {
-
             _resetImage.rectTransform.DORotate(Vector3.zero, 0.1f);
 
             _resetImage.transform.DOKill();
@@ -73,9 +120,11 @@ public class UIManager : MonoSingleton<UIManager>
                 .SetEase(Ease.OutCubic);
         }
     }
+
     public void SetStageText(string stage)
     {
         _stageText.text = stage;
+        _gameStartText.text = stage;
     }
 
     public void MenuClick()
