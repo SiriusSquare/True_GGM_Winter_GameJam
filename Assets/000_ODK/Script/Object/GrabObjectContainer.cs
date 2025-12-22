@@ -9,6 +9,7 @@ public class GrabObjectContainer : MonoBehaviour
     [SerializeField] private LayerMask objectLayer;
     [SerializeField] private LayerMask noDropLayer;
     [SerializeField] private Vector2 gridSize = Vector2.one; // 타일 1칸 크기
+    [SerializeField] private float grabRange = 3f;
     [SerializeField] private int maxCapacity = 1;
 
     private Vector2Int mouseVector;
@@ -25,6 +26,16 @@ public class GrabObjectContainer : MonoBehaviour
 
     public float fadeDistance = 3f; // 마우스와의 거리 기준
     public float fadeDuration = 0.2f;
+
+    public void PlusMaxCapacity()
+    {
+        maxCapacity++;
+    }
+
+    public void PlusGrabRange()
+    {
+               grabRange+=2;
+    }
 
     public void FixedUpdate()
     {
@@ -161,7 +172,8 @@ public class GrabObjectContainer : MonoBehaviour
     bool IsInside3x3(Vector2 worldPos)
     {
         Vector2 center = transform.position;
-        Vector2 halfSize = gridSize * 1.5f; // 3칸 / 2
+        Vector2 halfSize = gridSize * (grabRange/2)
+            ; // 3칸 / 2
 
         return Mathf.Abs(worldPos.x - center.x) <= halfSize.x &&
                Mathf.Abs(worldPos.y - center.y) <= halfSize.y;
