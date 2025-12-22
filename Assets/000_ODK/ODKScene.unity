@@ -357,8 +357,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 936332043
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 2537882373423050008, guid: f037c1819f5238c46be582ec32fe03de, type: 3}
   m_Color: {r: 0.57169807, g: 0.85755765, b: 1, a: 1}
@@ -5391,6 +5391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField:
   - SA
   <Activated>k__BackingField: 1
@@ -6010,6 +6011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 1
   <ObjectType>k__BackingField:
   - SA
   <Activated>k__BackingField: 1
@@ -6216,6 +6218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField:
   - SA
   <Activated>k__BackingField: 1
@@ -6501,6 +6504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 1
   <ObjectType>k__BackingField:
   - SA
   <Activated>k__BackingField: 1
@@ -6968,6 +6972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 1
   <ObjectType>k__BackingField:
   - SA
   <Activated>k__BackingField: 1
@@ -7545,6 +7550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField: []
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 1
@@ -8071,6 +8077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795ad21f0378c69439e63f1005c26bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField: []
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 0
@@ -13104,6 +13111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField:
   - SA
   <Activated>k__BackingField: 1

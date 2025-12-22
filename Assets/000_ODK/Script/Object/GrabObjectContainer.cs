@@ -199,7 +199,7 @@ public class GrabObjectContainer : MonoBehaviour
         }
     }
 
-    
+
     void HandleRightClick()
     {
         Camera cam = Camera.main;
@@ -209,13 +209,20 @@ public class GrabObjectContainer : MonoBehaviour
         mp.z = -cam.transform.position.z;
         Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mp);
 
-        // ① 사거리 체크
-        if (!IsInside3x3(mouseWorldPos))
-            return;
+        if (!IsInside3x3(mouseWorldPos)) return;
 
-        // ② 해당 위치에 NoDrop 오브젝트가 있으면 드롭 금지
-        if (Physics2D.OverlapPoint(mouseWorldPos, noDropLayer) != null)
-            return;
+        // 🔹 수정된 부분: OverlapPoint 대신 사용 (트리거 포함 감지)
+        // true를 인자로 넣으면 트리거 콜라이더도 감지합니다.
+        Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, noDropLayer);
+
+        // 만약 일반 OverlapPoint가 트리거를 못 잡는다면 아래 방식을 사용하세요
+        /*
+        Collider2D hit = null;
+        Collider2D[] results = Physics2D.OverlapPointAll(mouseWorldPos, noDropLayer);
+        if (results.Length > 0) hit = results[0];
+        */
+
+        if (hit != null) return;
 
         AbstractObjectScript target = GetLastObject();
         if (target != null)
