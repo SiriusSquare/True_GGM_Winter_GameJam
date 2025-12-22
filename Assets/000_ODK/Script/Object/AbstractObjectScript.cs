@@ -13,7 +13,7 @@ public class UsedItemEvent
 
 public abstract class AbstractObjectScript : MonoBehaviour
 {
-    [field:SerializeField] public bool Triggerable { get; protected set; }
+    [field: SerializeField] public bool Triggerable { get; protected set; } = true;
     [field: SerializeField] public bool NoActiveChange { get; protected set; }
     [field: SerializeField] public string[] ObjectType { get; protected set; }
     [field: SerializeField] public bool Activated { get; protected set; } = true;
