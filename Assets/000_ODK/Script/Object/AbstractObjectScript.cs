@@ -1,92 +1,121 @@
 using DG.Tweening;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public abstract class AbstractObjectScript : MonoBehaviour
 {
-    [field: SerializeField] public bool Activated { get; protected set; }
-    [field: SerializeField] public Color ObjectColor { get; protected set; }
-
+    [field: SerializeField] public string[] ObjectType { get; protected set; }
+    [field: SerializeField] public bool Activated { get; protected set; } = true;
     [field: SerializeField] public bool isGrabable { get; protected set; }
-    [field: SerializeField] public bool Grabed { get; protected set; }
 
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] protected SpriteRenderer selectRenderer;
+
     protected Collider2D objectCollider;
     protected Rigidbody2D objectRigidbody;
-    [SerializeField] protected float grabDistance = 0.5f;
-    protected Transform grabTarget;
-    [SerializeField] private float gridSize = 1f;
 
-    
+    protected bool Grabed;
+    protected Transform grabTarget;
+
+    [SerializeField] protected float grabDistance = 0.5f;
+    [SerializeField] protected float followSpeed = 15f;
+    [SerializeField] protected float gridSize = 1f;
+
+    protected GameObject player;
+
     protected virtual void Awake()
     {
-        if (ObjectColor == null)
-        {
-            ObjectColor = spriteRenderer.color;
-        }
+        player = FindAnyObjectByType<PlayerMovement>().gameObject;
+
         objectCollider = GetComponent<Collider2D>();
         objectRigidbody = GetComponent<Rigidbody2D>();
+
+        if (selectRenderer != null)
+            selectRenderer.color = new Color(1, 1, 1, 0);
     }
+
+    /* =========================
+       Mouse Events (Container)
+       ========================= */
 
     public virtual void MouseEnter()
     {
-        if (!Activated) return;
+        if (!Activated || Grabed || selectRenderer == null) return;
 
-        selectRenderer.DOColor(Color.yellow, 0.2f);
+        selectRenderer.DOFade(0.3f, 0.15f);
     }
+
+    public virtual void MouseExit()
+    {
+        if (!Activated || Grabed || selectRenderer == null) return;
+
+        selectRenderer.DOFade(0f, 0.15f);
+    }
+
     public virtual void MouseDown()
     {
         if (!Activated || Grabed) return;
 
         Interact();
     }
-    public virtual void MouseExit()
-    {
-        if (!Activated || Grabed) return;
 
-        selectRenderer.DOColor(ObjectColor, 0.2f);
-    }
+    /* =========================
+       Core Logic
+       ========================= */
 
-    public virtual void Active()
+    public virtual void Interact()
     {
-        Activated = true;
-        spriteRenderer.DOFade(1f, 0.5f);
-        objectCollider.enabled = true;
+        Grab();
     }
 
-    public virtual void Deactive()
-    {
-        spriteRenderer.DOFade(0.5f, 0.5f);
-        objectCollider.enabled = false;
-    }
-    public virtual void Interact() 
-    {
-        if (Activated) 
-        { 
-        } 
-    }
-    public virtual void Grab(Transform target)
+    public virtual void Grab()
     {
         if (!isGrabable || !Activated) return;
 
         Grabed = true;
-        grabTarget = target;
+        grabTarget = player.transform;
+
+        if (selectRenderer != null)
+            selectRenderer.DOFade(0f, 0.1f);
 
         if (objectRigidbody != null)
         {
             objectRigidbody.linearVelocity = Vector2.zero;
-            
+            objectRigidbody.isKinematic = true;
         }
     }
 
-    public virtual void Down(Transform target)
+    protected virtual void FixedUpdate()
     {
-        if (!isGrabable || !Activated) return;
+        if (!Grabed || grabTarget == null) return;
+
+        Vector2 targetPos = grabTarget.position;
+
+        Vector2 dir = ((Vector2)transform.position - targetPos).normalized;
+        targetPos += dir * grabDistance;
+
+        if (objectRigidbody != null)
+        {
+            objectRigidbody.MovePosition(
+                Vector2.Lerp(
+                    objectRigidbody.position,
+                    targetPos,
+                    followSpeed * Time.fixedDeltaTime
+                )
+            );
+        }
+        else
+        {
+            transform.position = targetPos;
+        }
+    }
+
+    public virtual void Down(Vector3 Pos)
+    {
+        if (!Grabed) return;
 
         Grabed = false;
 
-        Vector3 worldPos = target.position;
+        Vector3 worldPos = Pos;
 
         float snapX = Mathf.Round(worldPos.x / gridSize) * gridSize;
         float snapY = Mathf.Round(worldPos.y / gridSize) * gridSize;
@@ -94,8 +123,6 @@ public abstract class AbstractObjectScript : MonoBehaviour
         transform.position = new Vector3(snapX, snapY, transform.position.z);
 
         if (objectRigidbody != null)
-        {
             objectRigidbody.isKinematic = false;
-        }
     }
 }
