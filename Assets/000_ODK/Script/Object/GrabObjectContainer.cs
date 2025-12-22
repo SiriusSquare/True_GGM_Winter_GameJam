@@ -8,7 +8,7 @@ public class GrabObjectContainer : MonoBehaviour
     [SerializeField] private LayerMask objectLayer;
     [SerializeField] private LayerMask noDropLayer;
     [SerializeField] private Vector2 gridSize = Vector2.one; // 타일 1칸 크기
-    
+    [SerializeField] private int maxCapacity = 1;
 
     private AbstractObjectScript currentHover;
     [field:SerializeField] public List<AbstractObjectScript> GrabArray { get; private set; }
@@ -91,18 +91,35 @@ public class GrabObjectContainer : MonoBehaviour
         // 좌클릭 : 선택된 오브젝트
         if (Input.GetMouseButtonDown(0))
         {
-            if (currentHover != null)
+            if (currentHover != null && currentHover.isGrabable)
+            {
+                // 최대 개수 초과 시 가장 먼저 Grab한 오브젝트 내려놓기
+                if (GrabArray.Count >= maxCapacity)
+                {
+                    var first = GrabArray[0];
+                    if (first != null)
+                    {
+                        first.Down(currentHover.transform.position);
+                    }
+                }
+
+                // 새 오브젝트 Grab
+                currentHover.Grab();
+            }
+            else if (currentHover != null)
             {
                 currentHover.MouseDown();
             }
         }
 
-        // 우클릭 : 사거리 내 가장 가까운 오브젝트
+        // 우클릭 : 사거리 내 가장 가까운 오브젝트 내려놓기
         if (Input.GetMouseButtonDown(1))
         {
             HandleRightClick();
         }
     }
+
+    
     void HandleRightClick()
     {
         Camera cam = Camera.main;
@@ -127,7 +144,29 @@ public class GrabObjectContainer : MonoBehaviour
         }
     }
 
+    void Swap()
+    {
+        Camera cam = Camera.main;
+        if (cam == null) return;
 
+        Vector3 mp = Input.mousePosition;
+        mp.z = -cam.transform.position.z;
+        Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mp);
+
+        // ① 사거리 체크
+        if (!IsInside3x3(mouseWorldPos))
+            return;
+
+        // ② 해당 위치에 NoDrop 오브젝트가 있으면 드롭 금지
+        if (Physics2D.OverlapPoint(mouseWorldPos, noDropLayer) != null)
+            return;
+
+        AbstractObjectScript target = GrabArray.First();
+        if (target != null)
+        {
+            target.Down(mouseWorldPos);
+        }
+    }
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {

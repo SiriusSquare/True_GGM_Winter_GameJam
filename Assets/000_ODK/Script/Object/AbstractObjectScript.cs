@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class AbstractObjectScript : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public abstract class AbstractObjectScript : MonoBehaviour
     private Ease ease = Ease.OutQuad;
     protected GameObject player;
     [SerializeField] private LayerMask blockLayer;
+
+    [SerializeField] protected UnityEvent onInteract;
+    [SerializeField] protected UnityEvent onGrab;
+    [SerializeField] protected UnityEvent onDrop;
+    [SerializeField] protected UnityEvent onActive;
+    [SerializeField] protected UnityEvent onDisable;
     protected virtual void Awake()
     {
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
@@ -36,6 +43,19 @@ public abstract class AbstractObjectScript : MonoBehaviour
     /* =========================
        Mouse Events (Container)
        ========================= */
+
+    public virtual void Active()
+    {
+        Activated = true;
+        spriteRenderer.DOFade(1f, 0.2f).SetEase(ease);
+        onActive.Invoke();
+    }
+    public virtual void Disable()
+    {
+        Activated = false;
+        spriteRenderer.DOFade(1f, 0.2f).SetEase(ease);
+        onActive.Invoke();
+    }
 
     public virtual void MouseEnter()
     {
