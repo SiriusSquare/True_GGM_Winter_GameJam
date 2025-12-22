@@ -12,10 +12,9 @@ public class FadeManager : MonoSingleton<FadeManager>
     private Sequence _seq;
 
     protected override void Awake()
-    {
+    {   
         base.Awake();
         DontDestroyOnLoad(gameObject);
-        _seq?.Kill();
         FadeOut();
     }
 

@@ -38,8 +38,16 @@ public class SettingManager : MonoSingleton<SettingManager>
     [SerializeField] private Sprite _soundMedium;
     [SerializeField] private Sprite _soundLarge;
 
+    [Header("DisplayMode")]
+    [SerializeField] private TMP_Dropdown _displaymode;
+    public enum ScreenMode
+    {
+        FullScreenWindow,
+        Window
+    }
+
     [Header("Resolution Settings")]
-    [SerializeField] private TMP_Dropdown resolutionDropdown;
+    [SerializeField] private TMP_Dropdown _resolutionDropdown;
     private Resolution[] resolutions;
 
     private float _lastMasterVol = 1f;
@@ -52,11 +60,42 @@ public class SettingManager : MonoSingleton<SettingManager>
 
     private void Start()
     {
+        List<string> options = new List<string> {
+            "전체화면",
+            "창모드"
+        };
+
+        _displaymode.ClearOptions();
+        _displaymode.AddOptions(options);
+        _displaymode.value = Screen.fullScreenMode == FullScreenMode.Windowed ? 1 : 0;
+        _displaymode.RefreshShownValue();
+
+        _displaymode.onValueChanged.AddListener(index => ChangeFullScreenMode((ScreenMode)index));
         gameObject.SetActive(false);
         InitResolution();
         InitSound();
     }
+    private void ChangeFullScreenMode(ScreenMode mode)
+    {
+        int width = Screen.width;
+        int height = Screen.height;
 
+        if (resolutions != null && _resolutionDropdown.value < resolutions.Length)
+        {
+            width = resolutions[_resolutionDropdown.value].width;
+            height = resolutions[_resolutionDropdown.value].height;
+        }
+
+        switch (mode)
+        {
+            case ScreenMode.FullScreenWindow:
+                Screen.SetResolution(width, height, FullScreenMode.FullScreenWindow);
+                break;
+            case ScreenMode.Window:
+                Screen.SetResolution(width, height, FullScreenMode.Windowed);
+                break;
+        }
+    }
     private void InitSound()
     {
         if (CoreScript.Instance == null) return;
@@ -275,13 +314,13 @@ public class SettingManager : MonoSingleton<SettingManager>
         for (int i = 0; i < uniqueList.Count; i++) options.Add(uniqueList[i].width + " x " + uniqueList[i].height);
 
         resolutions = uniqueList.ToArray();
-        resolutionDropdown.ClearOptions();
-        resolutionDropdown.AddOptions(options);
+        _resolutionDropdown.ClearOptions();
+        _resolutionDropdown.AddOptions(options);
 
         int savedIndex = CoreScript.Instance != null ? CoreScript.Instance.ResolutionSetting : 0;
-        resolutionDropdown.SetValueWithoutNotify(savedIndex);
-        resolutionDropdown.RefreshShownValue();
-        resolutionDropdown.onValueChanged.AddListener(SetResolution);
+        _resolutionDropdown.SetValueWithoutNotify(savedIndex);
+        _resolutionDropdown.RefreshShownValue();
+        _resolutionDropdown.onValueChanged.AddListener(SetResolution);
     }
     public void SetResolution(int resolutionIndex)
     {
