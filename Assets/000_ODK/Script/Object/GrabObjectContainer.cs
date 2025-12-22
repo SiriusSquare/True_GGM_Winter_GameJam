@@ -1,71 +1,78 @@
+Ôªøusing System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class GrabObjectContainer : MonoBehaviour
 {
-    [SerializeField] private Vector2 gridSize = Vector2.one; // ≈∏¿œ 1ƒ≠ ≈©±‚
     [SerializeField] private LayerMask objectLayer;
+    [SerializeField] private Vector2 gridSize = Vector2.one; // ÌÉÄÏùº 1Ïπ∏ ÌÅ¨Í∏∞
 
-    private List<AbstractObjectScript> cachedObjects = new();
     private AbstractObjectScript currentHover;
-
+    [field:SerializeField] public List<AbstractObjectScript> GrabArray { get; private set; }
     void Update()
     {
         UpdateHover();
         HandleClick();
     }
 
+    public void ArrayAdd(AbstractObjectScript abstractObjectScript)
+    {
+        GrabArray.Add(abstractObjectScript);
+    }
+    public void ArrayRemove(AbstractObjectScript abstractObjectScript)
+    {
+        GrabArray.Remove(abstractObjectScript);
+    }
+    public AbstractObjectScript GetObjectByType(string type)
+    {
+        foreach (var obj in GrabArray)
+        {
+            foreach (var objType in obj.ObjectType)
+            {
+                if (objType == type)
+                    return obj;
+            }
+        }
+        return null;
+    }
     void UpdateHover()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Camera cam = Camera.main;
+        if (cam == null) return;
 
-        cachedObjects.Clear();
+        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        // 3x3 ≈∏¿œ π¸¿ß
-        Vector2 boxSize = gridSize * 3f;
+        Collider2D hit = Physics2D.OverlapPoint(mousePos, objectLayer);
 
-        Collider2D[] hits = Physics2D.OverlapBoxAll(
-            transform.position,
-            boxSize,
-            0f,
-            objectLayer
-        );
+        AbstractObjectScript nextHover = null;
 
-        foreach (var hit in hits)
+        if (hit != null)
         {
-            AbstractObjectScript obj =
-                hit.GetComponent<AbstractObjectScript>();
+            AbstractObjectScript obj = hit.GetComponent<AbstractObjectScript>();
 
-            if (obj != null && obj.Activated)
+            if (obj != null && IsInside3x3(obj.transform.position))
             {
-                cachedObjects.Add(obj);
+                nextHover = obj;
             }
         }
 
-        // ∏∂øÏΩ∫ ¿ßƒ° ±‚¡ÿ ∞°¿Â ∞°±ÓøÓ ø¿∫Í¡ß∆Æ º±≈√
-        AbstractObjectScript nearest = null;
-        float minDist = float.MaxValue;
+        if (nextHover == currentHover) return;
 
-        foreach (var obj in cachedObjects)
-        {
-            float dist = Vector2.Distance(mousePos, obj.transform.position);
-            if (dist < minDist)
-            {
-                minDist = dist;
-                nearest = obj;
-            }
-        }
+        if (currentHover != null)
+            currentHover.MouseExit();
 
-        if (nearest != currentHover)
-        {
-            if (currentHover != null)
-                currentHover.MouseExit();
+        currentHover = nextHover;
 
-            currentHover = nearest;
+        if (currentHover != null)
+            currentHover.MouseEnter();
+    }
 
-            if (currentHover != null)
-                currentHover.MouseEnter();
-        }
+    bool IsInside3x3(Vector2 worldPos)
+    {
+        Vector2 center = transform.position;
+        Vector2 halfSize = gridSize * 1.5f; // 3Ïπ∏ / 2
+
+        return Mathf.Abs(worldPos.x - center.x) <= halfSize.x &&
+               Mathf.Abs(worldPos.y - center.y) <= halfSize.y;
     }
 
     void HandleClick()
