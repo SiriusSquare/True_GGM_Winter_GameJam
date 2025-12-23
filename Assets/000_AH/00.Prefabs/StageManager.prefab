@@ -2772,7 +2772,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   triggerOnce: 0
-  targetStageIndex: 0
+  targetStageIndex: -1
 --- !u!1 &4740219483161376427
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,7 +3145,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   triggerOnce: 0
-  targetStageIndex: 0
+  targetStageIndex: -1
 --- !u!1 &5015130402005184929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4622,7 +4622,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   useItemEvent:
-  - type: Stage 1
+  - type: Stage1
     onEvent:
       m_PersistentCalls:
         m_Calls:
