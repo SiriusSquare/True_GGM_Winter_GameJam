@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class StageClearCheck : MonoBehaviour
@@ -6,7 +7,8 @@ public class StageClearCheck : MonoBehaviour
     private bool isCleared = false;
     private void Awake()
     {
-        detectionPads = GetComponentsInChildren<ObjectDetectionPad>();
+        isCleared = false;
+        detectionPads = FindObjectsByType<ObjectDetectionPad>(FindObjectsSortMode.None);
     }
 
     public bool IsStageClear()                                                      
@@ -29,7 +31,13 @@ public class StageClearCheck : MonoBehaviour
             Debug.Log("Stage Clear!");
             isCleared = true;
             AH_StageManager.Instance.ClearStageAndFillLine();
+            StartCoroutine(ReturnScene());
         }
+    }
+    public IEnumerator ReturnScene()
+    {
+        yield return new WaitForSeconds(.7f);
+        SceneChangeManager.Instance.ChangeScene("SceneSelect");
     }
 }
 

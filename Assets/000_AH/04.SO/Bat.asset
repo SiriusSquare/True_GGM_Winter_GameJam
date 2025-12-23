@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8cc9a180ef2ae4bb3557d831193d08, type: 3}
-  m_Name: Switch 1
+  m_Name: Bat
   m_EditorClassIdentifier: 
-  Title: "\uC2A4\uC704\uCE58"
-  Description: "\uD574\uB2F9 \uCEEC\uB7EC\uC758 \uC2A4\uC704\uCE58\uB97C ON/OFF\uD569\uB2C8\uB2E4."
-  Image: {fileID: 0}
+  Title: "\uBC15\uC950"
+  Description: "\uB9DE\uB294 \uB465\uC9C0\uC5D0 \uBC15\uC950\uB97C \uB123\uC73C\uBA74
+    \uD074\uB9AC\uC5B4 \uD560 \uC218 \uC788\uB2E4."
+  Image: {fileID: 2617549230661054390, guid: 82bcbac23d79b0649aebbd5c62179d9f, type: 3}

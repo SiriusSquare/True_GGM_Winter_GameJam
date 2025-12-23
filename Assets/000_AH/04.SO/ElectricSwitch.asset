@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8cc9a180ef2ae4bb3557d831193d08, type: 3}
-  m_Name: EnableObject
+  m_Name: ElectricSwitch
   m_EditorClassIdentifier: 
-  Title: 
-  Description: 
-  Image: {fileID: 0}
+  Title: "\uC804\uAE30 \uC2A4\uC704\uCE58"
+  Description: "\uC804\uAE30 \uC624\uBE0C\uC81D\uD2B8\uB97C \uC0AC\uC6A9\uD574\uC11C
+    \uAC19\uC740 \uC0C9\uAE54\uC758 \uC624\uBE0C\uC81D\uD2B8\uB97C On/Off \uD560
+    \uC218 \uC788\uB2E4."
+  Image: {fileID: -3422914955045023451, guid: 05ba27f15be1c024c81fcfb9a1a08fa0, type: 3}
