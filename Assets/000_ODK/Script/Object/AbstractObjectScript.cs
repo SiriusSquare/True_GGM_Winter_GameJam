@@ -53,7 +53,6 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         _flip = FindFirstObjectByType<PlayerFlip>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
-
         objectCollider = GetComponent<Collider2D>();
         objectRigidbody = GetComponent<Rigidbody2D>();
         if (Activated == false)

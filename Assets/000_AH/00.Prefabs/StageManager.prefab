@@ -368,6 +368,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 6
 --- !u!1 &1407634460086786195
@@ -738,6 +750,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 1
 --- !u!1 &1657585732714788839
@@ -972,6 +996,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 10
 --- !u!1 &2359970709995834044
@@ -1202,6 +1238,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 9
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -2157,6 +2205,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -3546,6 +3606,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 2
 --- !u!1 &5766352052463058947
@@ -3776,6 +3848,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 5
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -4264,6 +4348,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 9
 --- !u!1 &6229380146836878398
@@ -4498,6 +4594,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 0
 --- !u!1 &6412077118504113297
@@ -4728,6 +4836,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -5476,6 +5596,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 3
 --- !u!1001 &8949990585299274045
@@ -5488,23 +5620,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120929669312044379, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 525532824177407197, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1933554915176204206, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2674820401805485389, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5452694608501232651, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280499952120415277, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_Pivot.x
@@ -5592,11 +5724,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7112857291628388583, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7793673235886525256, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
