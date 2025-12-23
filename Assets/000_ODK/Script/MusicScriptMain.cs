@@ -110,11 +110,4 @@ public class MusicScriptMain : MonoBehaviour
         }
 
     }
-    private void Update()
-    {
-        if (audioSource != null && audioSource.clip != null)
-        {
-            audioSource.volume = CoreScript.Instance.BGMSetting * MusicScriptMain.Instance.AudioAbsSound;
-        }
-    }
 }
