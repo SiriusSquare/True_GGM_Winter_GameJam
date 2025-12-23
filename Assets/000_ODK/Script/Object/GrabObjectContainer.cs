@@ -17,11 +17,6 @@ public class GrabObjectContainer : MonoBehaviour
     private AbstractObjectScript currentHover;
     [field:SerializeField] public List<AbstractObjectScript> GrabArray { get; private set; }
 
-    private AudioSource audioSource;
-
-
-    [SerializeField] private AudioClip grabSound;
-
     void Update()
     {
         UpdateHover();
@@ -30,15 +25,6 @@ public class GrabObjectContainer : MonoBehaviour
 
     public float fadeDistance = 3f; // 마우스와의 거리 기준
     public float fadeDuration = 0.2f;
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-    }
-
     public void PlusMaxCapacity()
     {
         maxCapacity++;
@@ -192,37 +178,6 @@ public class GrabObjectContainer : MonoBehaviour
                Mathf.Abs(worldPos.y - center.y) <= halfSize.y;
     }
 
-    void HandleClick()
-    {
-        // 🔹 좌클릭 (0) : 잡기 또는 설치(내려놓기)
-        if (Input.GetMouseButtonDown(0))
-        {
-            // 1. 마우스 아래에 오브젝트가 있는 경우
-            if (currentHover != null)
-            {
-                if (currentHover.isGrabable)
-                {
-                    // 최대 개수 초과 시 가장 먼저 잡은 것 내려놓기
-                    if (GrabArray.Count >= maxCapacity)
-                    {
-                        var first = GrabArray[0];
-                        if (first != null) first.Down(currentHover.transform.position);
-                    }
-                    currentHover.Grab();
-                }
-                else
-                {
-                    HandleRightClick();
-                }
-                audioSource.PlayOneShot(grabSound);
-            }
-            else
-            {
-                HandleRightClick();
-            }
-        }
-
-    }
 
     // 좌클릭으로 빈 공간에 설치할 때 호출할 함수
     private void TryPlaceItem()
@@ -249,7 +204,7 @@ public class GrabObjectContainer : MonoBehaviour
             if (target != null)
             {
                 target.Down(mouseWorldPos);
-                audioSource.PlayOneShot(grabSound);
+                SoundManager.Instance.PlaySFX(target.soundIndex);
             }
 
         }
@@ -263,26 +218,59 @@ public class GrabObjectContainer : MonoBehaviour
             Mathf.RoundToInt(worldPos.y / gridSize.y)
         );
     }
+    void HandleClick()
+    {
+        if (Input.GetMouseButtonDown(0)) // 좌클릭
+        {
+            if (currentHover != null)
+            {
+                if (currentHover.isGrabable)
+                {
+                    // 최대 개수 초과 시 가장 먼저 잡은 것 내려놓기
+                    if (GrabArray.Count >= maxCapacity)
+                    {
+                        var first = GrabArray[0];
+                        if (first != null)
+                        {
+                            first.Down(currentHover.transform.position);
+                            // 🔊 내려놓는 소리
+                            SoundManager.Instance.PlaySFX(first.soundIndex);
+                        }
+                    }
+
+                    currentHover.Grab();
+                    // 🔊 잡는 소리
+                    SoundManager.Instance.PlaySFX(currentHover.soundIndex);
+                }
+                else
+                {
+                    // 잡을 수 없는 물체(스위치 등) 클릭 시 아이템 사용 시도
+                    HandleRightClick();
+                }
+            }
+            else
+            {
+                // 빈 공간 클릭 시 아이템 설치/사용 시도
+                HandleRightClick();
+            }
+        }
+    }
+
     void HandleRightClick()
     {
         Camera cam = Camera.main;
         if (cam == null) return;
-        Vector3 mp = Input.mousePosition;
-        mp.z = -cam.transform.position.z;
-        Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mp);
+        Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0;
 
         if (!IsInside3x3(mouseWorldPos)) return;
 
-        Vector2Int mouseGrid = WorldToGrid(mouseWorldPos);
-        Vector2Int selfGrid = WorldToGrid(transform.position);
+        // 아이템 사용 대상 확인 (noDropLayer와 objectLayer 둘 다 체크 권장)
+        Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, noDropLayer | objectLayer);
 
-        // 🔥 자기 위치 아래 설치 금지
-        if (mouseGrid == selfGrid)
-            return;
-        Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, noDropLayer);
-        if (hit != null)
+        if (hit != null && hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript abstractObjectScript))
         {
-            if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript abstractObjectScript) && abstractObjectScript.UseableObjectType.Length > 0)
+            if (abstractObjectScript.UseableObjectType.Length > 0)
             {
                 foreach (var useType in abstractObjectScript.UseableObjectType)
                 {
@@ -291,32 +279,29 @@ public class GrabObjectContainer : MonoBehaviour
                         if (grabObj.ObjectType.Contains(useType))
                         {
                             abstractObjectScript.Use(useType);
+
+                            // 🔊 아이템 사용 소리 (들고 있는 아이템의 사운드 실행)
+                            SoundManager.Instance.PlaySFX(grabObj.soundIndex);
+
                             if (grabObj.IsConsumerble)
-                            {
-                                
                                 grabObj.Consum(mouseWorldPos);
-                            }
                             else
-                            {
                                 grabObj.UseNoConsume(mouseWorldPos);
-                            }
-                                return;
+
+                            return;
                         }
                     }
                 }
-                audioSource.PlayOneShot(grabSound);
-
-            }
-            else
-            {
-                return;
             }
         }
 
+        // 아무것도 없거나 상호작용이 불가능한 곳이면 아이템 내려놓기
         AbstractObjectScript target = GetLastObject();
         if (target != null)
         {
             target.Down(mouseWorldPos);
+            // 🔊 내려놓는 소리
+            SoundManager.Instance.PlaySFX(target.soundIndex);
         }
     }
 
