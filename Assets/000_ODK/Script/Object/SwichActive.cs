@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwichActive : AbstractObjectScript
@@ -9,6 +10,8 @@ public class SwichActive : AbstractObjectScript
     protected override void Awake()
     {
         base.Awake();
+        switchedOnSpriteRenderer.color = ObjectColor;
+        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.8f, 0.8f, 0.8f);
         if (switched)
         {
             switchedOnSpriteRenderer.gameObject.SetActive(true);
@@ -20,6 +23,8 @@ public class SwichActive : AbstractObjectScript
             switchedOffSpriteRenderer.gameObject.SetActive(true);
         }
     }
+
+    
     public override void Interact()
     {
         AbstractObjectScript[] objects = FindObjectsByType<AbstractObjectScript>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -49,6 +54,15 @@ public class SwichActive : AbstractObjectScript
             switchedOnSpriteRenderer.gameObject.SetActive(false);
             switchedOffSpriteRenderer.gameObject.SetActive(true);
         }
+        base.Interact();
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        switchedOnSpriteRenderer.color = ObjectColor;
+        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.8f, 0.8f, 0.8f);
+    }
+#endif
 
 }
