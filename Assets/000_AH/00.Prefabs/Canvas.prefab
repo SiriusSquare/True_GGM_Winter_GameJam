@@ -270,7 +270,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6121121585888110055}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: MenuClick
         m_Mode: 1
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6121121585888110055}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: GotoMainScene
         m_Mode: 1
@@ -475,6 +475,7 @@ RectTransform:
   m_Children:
   - {fileID: 8953700191264855732}
   - {fileID: 2557742190984053900}
+  - {fileID: 7952291186631589386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -666,7 +667,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6121121585888110055}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: MenuClick
         m_Mode: 1
@@ -1049,6 +1050,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 0}
+--- !u!1 &3215327845404639662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7952291186631589386}
+  - component: {fileID: 6121121585888110055}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7952291186631589386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215327845404639662}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -338.78156, y: 55.040527, z: -9.705727}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1739926663246629454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6121121585888110055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215327845404639662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9771212a8555a4889a8dcf38cd558b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stageText: {fileID: 251569640557992881}
+  _menuParent: {fileID: 3599426692435676748}
+  _resetImage: {fileID: 5989466210827087515}
+  _settingManager: {fileID: 8891727258718940663}
+  _gameStartText: {fileID: 3462461386235827978}
+  _menuVisibleAnchoredPos: {x: 0, y: 0}
+  _menuHiddenAnchoredPos: {x: 0, y: -600}
+  _menuAnimDuration: 0.35
+  _menuOpenEase: 9
+  _menuCloseEase: 8
 --- !u!1 &3599426692435676748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1397,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6121121585888110055}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnPointerEnterRotate
         m_Mode: 1
@@ -2326,6 +2381,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8293672325476620788, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6121121585888110055}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
