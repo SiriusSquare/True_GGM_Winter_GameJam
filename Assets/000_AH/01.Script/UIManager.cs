@@ -21,6 +21,7 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private TextMeshProUGUI _gameStartText;
 
 
+
     [Header("Menu Animation")]
     [SerializeField] private Vector2 _menuVisibleAnchoredPos = Vector2.zero;
     [SerializeField] private Vector2 _menuHiddenAnchoredPos = new Vector2(0f, -600f);

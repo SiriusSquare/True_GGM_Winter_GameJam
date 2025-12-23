@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/000_JJM/00Scene/MainMenu.unity
     guid: 12ff85b8fb002754fb5b9907057bf3c0
   - enabled: 1
-    path: Assets/000_JJM/00Scene/StageChoice.unity
-    guid: d24b74d35cbc99045a1d5a5ae6898f60
+    path: Assets/000_AH/02.Scene/SceneSelect.unity
+    guid: c3b8dc7a1b4dcea4dada621538b99ed4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
