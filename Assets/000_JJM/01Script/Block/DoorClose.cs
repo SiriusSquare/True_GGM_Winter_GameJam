@@ -5,6 +5,7 @@ public class DoorClose : MonoBehaviour
 {
     [SerializeField] private Sprite _openImage;
     [SerializeField] private Sprite _closeImage;
+    [SerializeField] private LayerMask _layerMask;
 
     [SerializeField] private Vector2 _upOffset;
     [SerializeField] private Vector2 _upSize;
@@ -14,12 +15,14 @@ public class DoorClose : MonoBehaviour
     [SerializeField, ReadOnly] private bool open = false;
 
     private SpriteRenderer _spriteRenderer;
+    private Collider2D _collider;
 
-    bool upPassed;
-    bool downPassed;
+    private bool upPassed;
+    private bool downPassed;
 
     private void Awake()
     {
+        _collider = GetComponent<Collider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -28,13 +31,15 @@ public class DoorClose : MonoBehaviour
         bool upHit = Physics2D.OverlapBox(
             transform.position + (Vector3)_upOffset,
             _upSize,
-            0
+            0,
+            _layerMask
         );
 
         bool downHit = Physics2D.OverlapBox(
             transform.position + (Vector3)_downOffset,
             _downSize,
-            0
+            0,
+            _layerMask
         );
 
         if (upHit)
@@ -48,10 +53,8 @@ public class DoorClose : MonoBehaviour
             open = true;
         }
 
-        if (open)
-        {
-
-        }
+        _spriteRenderer.sprite = open ? _openImage : _closeImage;
+        _collider.isTrigger = !open;
     }
 
     private void OnDrawGizmos()
