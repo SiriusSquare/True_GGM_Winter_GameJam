@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7787152316736366223}
   - component: {fileID: 5160870762522489045}
   - component: {fileID: 1406729321012163132}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: ColorWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6992258998928375564}
   - component: {fileID: 8894123662250217694}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: asss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
