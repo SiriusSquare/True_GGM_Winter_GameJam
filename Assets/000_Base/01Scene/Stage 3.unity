@@ -1092,6 +1092,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -10169,6 +10173,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -10246,6 +10254,10 @@ PrefabInstance:
       propertyPath: <NoActiveChange>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
     - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -10542,6 +10554,10 @@ PrefabInstance:
       propertyPath: <NoActiveChange>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
     - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Color.b
       value: 1
