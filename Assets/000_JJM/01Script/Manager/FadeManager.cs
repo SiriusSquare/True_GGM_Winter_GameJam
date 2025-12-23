@@ -23,6 +23,7 @@ public class FadeManager : MonoSingleton<FadeManager>
 
     public void FadeOut()
     {
+        Debug.Log("¾Æ¿ô");
         _seq = DOTween.Sequence().SetUpdate(true);
         _seq.Append(_image.DOFade(1, 0));
         _seq.Append(_image.DOFade(0, ChangeTime));
