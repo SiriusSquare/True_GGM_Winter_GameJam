@@ -66,7 +66,7 @@ public class UIManager : MonoSingleton<UIManager>
                 SetStageText(currentName);
             }
             else
-            {
+            {   
                 SetStageText(SceneManager.GetActiveScene().name);
             }
         }

@@ -482,7 +482,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+  m_BackGroundColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -833,8 +833,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102, y: 291}
-  m_SizeDelta: {x: 100, y: 40}
+  m_AnchoredPosition: {x: 64, y: 157}
+  m_SizeDelta: {x: 71.998, y: 28.7992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960647802
 MonoBehaviour:
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3132108438709615540, guid: 6ef5337e4edb1c14f89dcef5a13d9727, type: 3}
+  m_Sprite: {fileID: -5353251487076008772, guid: 71da8106d311b9d48803bb697d5c728c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1020,23 +1020,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120929669312044379, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 525532824177407197, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1933554915176204206, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2674820401805485389, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5452694608501232651, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6280499952120415277, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_Pivot.x
@@ -1124,11 +1124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7112857291628388583, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7793673235886525256, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1727,6 +1727,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3489801738571602163, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 4246cdf2ef8b66e4e8f92996cc65a9cb, type: 3}
     - target: {fileID: 5813519834272344812, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
       propertyPath: m_Name
       value: AudioManagerGourop
