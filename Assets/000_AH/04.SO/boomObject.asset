@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8cc9a180ef2ae4bb3557d831193d08, type: 3}
-  m_Name: BoomObject
+  m_Name: boomObject
   m_EditorClassIdentifier: 
-  Title: "\uD3ED\uBC1C\uBE14\uB85D"
+  Title: "\uD3ED\uBC1C \uBE14\uB85D"
   Description: "\uBE14\uB85D\uC744 \uC6C0\uC9C1\uC774\uACE0 \uB454 \uACF3\uC744 \uAE30\uC900\uC73C\uB85C
     3x3\uC73C\uB85C \uD3ED\uBC1C\uC744 \uC77C\uC73C\uCF1C \uD2B9\uC815 \uBE14\uB85D\uB4E4\uC744
     \uD30C\uAD34\uD55C\uB2E4."
