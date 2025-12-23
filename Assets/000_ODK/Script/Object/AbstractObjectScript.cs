@@ -55,7 +55,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         objectCollider = GetComponent<Collider2D>();
         objectRigidbody = GetComponent<Rigidbody2D>();
-        ObjectColor = selectRenderer.color;
+        ObjectColor = spriteRenderer.color;
        
         if (selectRenderer != null)
             selectRenderer.color = new Color(1, 1, 1, 0);
