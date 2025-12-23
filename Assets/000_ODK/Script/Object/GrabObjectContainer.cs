@@ -181,34 +181,66 @@ public class GrabObjectContainer : MonoBehaviour
 
     void HandleClick()
     {
-        // 좌클릭 : 선택된 오브젝트
+        // 🔹 좌클릭 (0) : 잡기 또는 설치(내려놓기)
         if (Input.GetMouseButtonDown(0))
         {
-            if (currentHover != null && currentHover.isGrabable)
+            // 1. 마우스 아래에 오브젝트가 있는 경우
+            if (currentHover != null)
             {
-                // 최대 개수 초과 시 가장 먼저 Grab한 오브젝트 내려놓기
-                if (GrabArray.Count >= maxCapacity)
+                if (currentHover.isGrabable)
                 {
-                    var first = GrabArray[0];
-                    if (first != null)
+                    // 최대 개수 초과 시 가장 먼저 잡은 것 내려놓기
+                    if (GrabArray.Count >= maxCapacity)
                     {
-                        first.Down(currentHover.transform.position);
+                        var first = GrabArray[0];
+                        if (first != null) first.Down(currentHover.transform.position);
                     }
+                    currentHover.Grab();
                 }
-
-                // 새 오브젝트 Grab
-                currentHover.Grab();
+                else
+                {
+                    currentHover.MouseDown();
+                }
             }
-            else if (currentHover != null)
+            // 2. 마우스 아래에 아무것도 없는 빈 공간인 경우 -> 아이템 설치 시도
+            else
             {
-                currentHover.MouseDown();
+                HandleRightClick();
             }
         }
 
-        // 우클릭 : 사거리 내 가장 가까운 오브젝트 내려놓기
         if (Input.GetMouseButtonDown(1))
         {
             HandleRightClick();
+        }
+    }
+
+    // 좌클릭으로 빈 공간에 설치할 때 호출할 함수
+    private void TryPlaceItem()
+    {
+        Camera cam = Camera.main;
+        if (cam == null) return;
+
+        Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0;
+
+        // 사거리 및 그리드 체크
+        if (!IsInside3x3(mouseWorldPos)) return;
+
+        Vector2Int mouseGrid = WorldToGrid(mouseWorldPos);
+        Vector2Int selfGrid = WorldToGrid(transform.position);
+        if (mouseGrid == selfGrid) return; // 플레이어 발밑 설치 금지
+
+        // 설치하려는 곳에 이미 장애물(noDropLayer)이 있는지 확인
+        Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, noDropLayer);
+
+        if (hit == null)
+        {
+            AbstractObjectScript target = GetLastObject();
+            if (target != null)
+            {
+                target.Down(mouseWorldPos);
+            }
         }
     }
 
