@@ -17,7 +17,6 @@ public class DropTriggerItem : AbstractObjectScript
         base.Awake();
         isGrabable = false;
     }
-
     protected override void FixedUpdate()
     {
         if (triggerOnce && hasTriggered) return;

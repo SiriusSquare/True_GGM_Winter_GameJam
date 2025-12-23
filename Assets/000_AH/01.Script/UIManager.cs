@@ -58,14 +58,17 @@ public class UIManager : MonoSingleton<UIManager>
     }
     private IEnumerator Start()
     {
-        if (AH_StageManager.Instance != null && AH_StageManager.Instance.stages != null)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            string currentName = AH_StageManager.Instance.GetCurrentStageName();
-            SetStageText(currentName);
-        }
-        else
-        {
-            SetStageText(SceneManager.GetActiveScene().name);
+            if (AH_StageManager.Instance != null && AH_StageManager.Instance.stages != null)
+            {
+                string currentName = AH_StageManager.Instance.GetCurrentStageName();
+                SetStageText(currentName);
+            }
+            else
+            {
+                SetStageText(SceneManager.GetActiveScene().name);
+            }
         }
         if (_gameStartText != null)
         {

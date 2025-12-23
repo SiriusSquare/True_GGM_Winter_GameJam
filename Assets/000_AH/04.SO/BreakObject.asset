@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8cc9a180ef2ae4bb3557d831193d08, type: 3}
-  m_Name: ElectricObject
+  m_Name: BreakObject
   m_EditorClassIdentifier: 
-  Title: "\uC804\uAE30 \uC624\uBE0C\uC81D\uD2B8"
-  Description: "\uC804\uAE30 \uC2A4\uC704\uCE58\uB97C \uB2E8 1\uBC88 \uC791\uB3D9\uC2DC\uD0AC
-    \uC218 \uC788\uB2E4."
-  Image: {fileID: -5995057835285668052, guid: 7905e8ae0ba7189409134001b9772b77, type: 3}
+  Title: "\uD30C\uAD34 \uAC00\uB2A5 \uC624\uBE0C\uC81D\uD2B8"
+  Description: "\uD3ED\uBC1C \uC624\uBE0C\uC81D\uD2B8\uB85C \uD30C\uAD34 \uD560 \uC218
+    \uC788\uB2E4."
+  Image: {fileID: -1991346192180143725, guid: 7cef4db8998a4cb45b2c05156af9c259, type: 3}

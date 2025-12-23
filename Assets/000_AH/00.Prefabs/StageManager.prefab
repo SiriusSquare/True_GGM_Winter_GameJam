@@ -368,6 +368,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 6
 --- !u!1 &1407634460086786195
@@ -738,6 +750,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 1
 --- !u!1 &1657585732714788839
@@ -968,6 +992,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 12
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 10
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -1206,6 +1242,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 7
 --- !u!1 &2773932127494602326
@@ -1273,7 +1321,9 @@ MonoBehaviour:
     nodeObject: {fileID: 6229380146836878398}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
@@ -1282,19 +1332,23 @@ MonoBehaviour:
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
       IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
+      IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
       IsSceneShow: 0
   - stageName: Stage2
     nodeObject: {fileID: 1427977373592014889}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
@@ -1303,203 +1357,241 @@ MonoBehaviour:
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
       IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
+      IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
       IsSceneShow: 0
   - stageName: Stage3
     nodeObject: {fileID: 5689129048484446860}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
+      IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
       IsSceneShow: 0
   - stageName: Stage4
     nodeObject: {fileID: 8987450902118069640}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
       IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
+      IsSceneShow: 1
   - stageName: Stage5
     nodeObject: {fileID: 6412077118504113297}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
       IsSceneShow: 0
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
+      IsSceneShow: 1
   - stageName: Stage6
     nodeObject: {fileID: 5766352052463058947}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
+      IsSceneShow: 1
   - stageName: Stage7
     nodeObject: {fileID: 958612640037604526}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
       IsSceneShow: 0
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
+      IsSceneShow: 1
   - stageName: Stage8
     nodeObject: {fileID: 2359970709995834044}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
+      IsSceneShow: 1
   - stageName: Stage9
     nodeObject: {fileID: 3876128583606267583}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
+      IsSceneShow: 1
   - stageName: Stage10
     nodeObject: {fileID: 5998609245628155570}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
+      IsSceneShow: 1
   - stageName: StageEX
     nodeObject: {fileID: 1657585732714788839}
     infos:
     - InfoSO: {fileID: 11400000, guid: 1350a43b2d991fe4eac2fbec6664027c, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
-      IsSceneShow: 0
-    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: a710916d577c7f04c9f54f3c0763b7fa, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6c0010a844fa8b04c95cd49acd33dd6a, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: efced6bd993ea1c49870b54bb198f5e9, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 48f8368b1c67ed742b4aad92befd2855, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 5638ae11ca2fb51419dcef6e55d8d72a, type: 2}
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 32277f96072730c49abb0191f01136f7, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: 3459ba69c884a1748b49c42d184aa5a8, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
     - InfoSO: {fileID: 11400000, guid: b510b3807ad70e045b8809f22a1221d9, type: 2}
-      IsSceneShow: 0
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 1405b52d32e21914381e267e0dcec6e2, type: 2}
+      IsSceneShow: 1
+    - InfoSO: {fileID: 11400000, guid: 6ece3a71e19bc394b811f67dd100e906, type: 2}
+      IsSceneShow: 1
   lineWidth: 0.3
   bgLineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   fillLineColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -2157,6 +2249,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -3546,6 +3650,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 2
 --- !u!1 &5766352052463058947
@@ -3776,6 +3892,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 5
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -4264,6 +4392,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 9
 --- !u!1 &6229380146836878398
@@ -4482,7 +4622,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   useItemEvent:
-  - type: Stage1
+  - type: Stage 1
     onEvent:
       m_PersistentCalls:
         m_Calls:
@@ -4494,6 +4634,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -4728,6 +4880,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 1
             m_BoolArgument: 0
@@ -5476,6 +5640,18 @@ MonoBehaviour:
             m_StringArgument: 1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7796430869324269071}
+          m_TargetAssemblyTypeName: AH_StageManager, Assembly-CSharp
+          m_MethodName: SelectStage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
   triggerOnce: 0
   targetStageIndex: 3
 --- !u!1001 &8949990585299274045
@@ -5488,23 +5664,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120929669312044379, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 525532824177407197, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1933554915176204206, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2674820401805485389, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5452694608501232651, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280499952120415277, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_Pivot.x
@@ -5592,11 +5768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7112857291628388583, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7793673235886525256, guid: 8412f665cfb16e44f8aad6631538bf4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
