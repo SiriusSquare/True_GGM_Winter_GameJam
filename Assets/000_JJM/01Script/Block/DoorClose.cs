@@ -30,6 +30,9 @@ public class DoorClose : MonoBehaviour
 
     private bool downHit = false;
     private bool upHit = false;
+
+    private bool s = false;
+
     private void Update()
     {
         if (Physics2D.OverlapBox((Vector2)transform.position + _upOffset, _upSize, 0, _layerMask))
@@ -50,9 +53,15 @@ public class DoorClose : MonoBehaviour
 
         if (upHit && downHit && allHit)
         {
+            if (!s)
+            {
+                SoundManager.Instance.PlaySFX(4);
+                Debug.Log("d");
+                s = true;
+            }
             open = true;
         }
-
+        
 
         _spriteRenderer.sprite = open ? _openImage : _closeImage;
         _collider.isTrigger = !open;
