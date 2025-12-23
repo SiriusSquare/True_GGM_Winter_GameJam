@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageClearCheck : MonoBehaviour
 {
@@ -28,10 +29,17 @@ public class StageClearCheck : MonoBehaviour
         if (isCleared) return;
         if (IsStageClear())
         {
-            Debug.Log("Stage Clear!");
             isCleared = true;
             AH_StageManager.Instance.ClearStageAndFillLine();
-            StartCoroutine(ReturnScene());
+            if (SceneManager.GetActiveScene().buildIndex != 12)
+            {
+                Debug.Log("Stage Clear!");
+                StartCoroutine(ReturnScene());
+            }
+            else
+            {
+                SceneChangeManager.Instance.ChangeScene(13);
+            }
         }
     }
     public IEnumerator ReturnScene()

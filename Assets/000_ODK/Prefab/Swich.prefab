@@ -680,6 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795ad21f0378c69439e63f1005c26bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundIndex: 0
   <Triggerable>k__BackingField: 0
   <NoActiveChange>k__BackingField: 1
   <ObjectType>k__BackingField: []

@@ -1259,7 +1259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7660255371445122863, guid: cd412e5fcf18e8940b9ffb16279fd68b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 368.47675
+      value: 368.47235
       objectReference: {fileID: 0}
     - target: {fileID: 7662672128725001869, guid: cd412e5fcf18e8940b9ffb16279fd68b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11705,6 +11705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1751042843}
+  - component: {fileID: 1751042844}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -11727,6 +11728,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751042844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751042842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495d820bcd6eb7549944961729db94b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1765541918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12539,6 +12552,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8593987040237892292, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: needColor.b
+      value: 0.99607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593987040237892292, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: needColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593987040237892292, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: needColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8665890598114745571, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
       propertyPath: m_Name
       value: ObjectDetectionPad
@@ -12810,5 +12835,5 @@ SceneRoots:
   - {fileID: 81598708}
   - {fileID: 1736035318}
   - {fileID: 1254108214}
-  - {fileID: 1751042843}
   - {fileID: 2034771194}
+  - {fileID: 1751042843}
