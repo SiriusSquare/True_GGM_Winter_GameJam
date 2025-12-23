@@ -11,7 +11,7 @@ public class SwichActive : AbstractObjectScript
     {
         base.Awake();
         switchedOnSpriteRenderer.color = ObjectColor;
-        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.8f, 0.8f, 0.8f);
+        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.6f, 0.6f, 0.6f);
         if (switched)
         {
             switchedOnSpriteRenderer.gameObject.SetActive(true);
@@ -34,7 +34,7 @@ public class SwichActive : AbstractObjectScript
         foreach (AbstractObjectScript obj in objects)
         {
             // 2. 자기 자신 제외 로직 확인
-            if (obj == this) continue;
+            //if (obj == this) continue;
 
             // 3. 색상 비교 값 확인
 
@@ -61,7 +61,7 @@ public class SwichActive : AbstractObjectScript
     private void OnValidate()
     {
         switchedOnSpriteRenderer.color = ObjectColor;
-        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.8f, 0.8f, 0.8f);
+        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.6f, 0.6f, 0.6f);
     }
 #endif
 
