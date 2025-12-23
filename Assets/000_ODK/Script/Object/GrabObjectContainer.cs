@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class GrabObjectContainer : MonoBehaviour
 {
@@ -226,63 +227,51 @@ public class GrabObjectContainer : MonoBehaviour
         mp.z = -cam.transform.position.z;
         Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mp);
 
-        if (!IsInside3x3(mouseWorldPos))
-        {
-            return;
-        }
+        if (!IsInside3x3(mouseWorldPos)) return;
 
         Vector2Int mouseGrid = WorldToGrid(mouseWorldPos);
         Vector2Int selfGrid = WorldToGrid(transform.position);
 
+        // 🔥 자기 위치 아래 설치 금지
         if (mouseGrid == selfGrid)
-        {
             return;
-        }
-
-        // 1. 레이어 체크 확인
         Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, noDropLayer);
         if (hit != null)
         {
-
-            if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript groundTarget))
+            if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript abstractObjectScript) && abstractObjectScript.UseableObjectType.Length > 0)
             {
-
-                foreach (var eventData in groundTarget.useItemEvent)
+                foreach (var useType in abstractObjectScript.UseableObjectType)
                 {
                     foreach (var grabObj in GrabArray)
                     {
-
-                        if (grabObj.ObjectType.Contains(eventData.type))
+                        if (grabObj.ObjectType.Contains(useType))
                         {
-
-                            groundTarget.Use(eventData.type);
-
+                            abstractObjectScript.Use(useType);
                             if (grabObj.IsConsumerble)
+                            {
+                                
                                 grabObj.Consum(mouseWorldPos);
+                            }
                             else
+                            {
                                 grabObj.UseNoConsume(mouseWorldPos);
-
-                            return;
+                            }
+                                return;
                         }
                     }
                 }
+
             }
             else
             {
+                return;
             }
-            return;
         }
-
 
         AbstractObjectScript target = GetLastObject();
         if (target != null)
         {
-
             target.Down(mouseWorldPos);
-        }
-        else
-        {
-
         }
     }
 
