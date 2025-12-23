@@ -363,7 +363,8 @@ MonoBehaviour:
   selectRenderer: {fileID: 6301926813245142645}
   <Grabed>k__BackingField: 0
   <IsConsumerble>k__BackingField: 1
-  <UseableObjectType>k__BackingField: []
+  <UseableObjectType>k__BackingField:
+  - Electric
   <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
