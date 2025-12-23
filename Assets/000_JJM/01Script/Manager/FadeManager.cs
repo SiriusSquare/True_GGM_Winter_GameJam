@@ -3,6 +3,7 @@ using Code.Core;
 using DG.Tweening;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FadeManager : MonoSingleton<FadeManager>
 {
@@ -15,7 +16,8 @@ public class FadeManager : MonoSingleton<FadeManager>
     protected override void Awake()
     {   
         base.Awake();
-        DontDestroyOnLoad(gameObject);
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+            DontDestroyOnLoad(gameObject);
         FadeOut();
     }
 

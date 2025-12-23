@@ -40,7 +40,8 @@ public class GrabObjectContainer : MonoBehaviour
     public void FixedUpdate()
     {
         if (Camera.main == null) return;
-        ditectionEffect.localScale = new Vector3(grabRange * gridSize.x, grabRange * gridSize.y, 1f);
+        if (ditectionEffect != null)
+            ditectionEffect.localScale = new Vector3(grabRange * gridSize.x, grabRange * gridSize.y, 1f);
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
 
