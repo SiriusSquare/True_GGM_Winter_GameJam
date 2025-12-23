@@ -44,6 +44,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [SerializeField] protected UnityEvent onActive;
     [SerializeField] protected UnityEvent onDisable;
     [SerializeField] protected UnityEvent onTrigger;
+    [SerializeField] protected UnityEvent onTrigger2;
     [SerializeField] public UsedItemEvent[] useItemEvent;
 
     private PlayerFlip _flip;
@@ -55,6 +56,10 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         objectCollider = GetComponent<Collider2D>();
         objectRigidbody = GetComponent<Rigidbody2D>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        }
         ObjectColor = spriteRenderer.color;
        
         if (selectRenderer != null)
@@ -181,7 +186,10 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         onTrigger?.Invoke();
     }
-
+    public virtual void Trigger2()
+    {
+        onTrigger2?.Invoke();
+    }
     public virtual void Down(Vector3 Pos)
     {
         if (!Grabed) return;

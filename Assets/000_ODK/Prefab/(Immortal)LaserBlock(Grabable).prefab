@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 663809484220264591}
   - component: {fileID: 4596491251461916423}
   m_Layer: 7
-  m_Name: LaserBlock(Grabable)
+  m_Name: (Immortal)LaserBlock(Grabable)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,7 +290,6 @@ MonoBehaviour:
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 1
   <isInteractable>k__BackingField: 1
-  <ObjectColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 0}
   selectRenderer: {fileID: 0}
   <Grabed>k__BackingField: 0
@@ -308,34 +307,10 @@ MonoBehaviour:
       m_Calls: []
   onGrab:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4596491251461916423}
-        m_TargetAssemblyTypeName: RayMachine, Assembly-CSharp
-        m_MethodName: RayEnable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onDrop:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4596491251461916423}
-        m_TargetAssemblyTypeName: RayMachine, Assembly-CSharp
-        m_MethodName: RayDisable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onActive:
     m_PersistentCalls:
       m_Calls: []
@@ -345,12 +320,15 @@ MonoBehaviour:
   onTrigger:
     m_PersistentCalls:
       m_Calls: []
+  onTrigger2:
+    m_PersistentCalls:
+      m_Calls: []
   useItemEvent: []
   dir: {x: 1, y: 0}
   maxDistance: 50
   blockRayLayer:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 1664
 --- !u!1 &1981662845151556524
 GameObject:
   m_ObjectHideFlags: 0

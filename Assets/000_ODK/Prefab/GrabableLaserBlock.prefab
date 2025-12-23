@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5024734153051053515}
   - component: {fileID: 1667304054904118314}
   m_Layer: 7
-  m_Name: LaserBlock
+  m_Name: GrabableLaserBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField: []
   <Activated>k__BackingField: 1
-  <isGrabable>k__BackingField: 0
+  <isGrabable>k__BackingField: 1
   <isInteractable>k__BackingField: 1
   spriteRenderer: {fileID: 0}
   selectRenderer: {fileID: 0}

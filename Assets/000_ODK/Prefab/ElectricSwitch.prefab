@@ -510,7 +510,6 @@ MonoBehaviour:
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 0
   <isInteractable>k__BackingField: 0
-  <ObjectColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 1581718016005441982}
   selectRenderer: {fileID: 961127340097182705}
   <Grabed>k__BackingField: 0
@@ -540,6 +539,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger2:
     m_PersistentCalls:
       m_Calls: []
   useItemEvent:
