@@ -96,7 +96,6 @@ public abstract class AbstractObjectScript : MonoBehaviour
     public virtual void MouseDown()
     {
         if (!Activated || Grabed || !isInteractable) return;
-
         Interact();
     }
 
