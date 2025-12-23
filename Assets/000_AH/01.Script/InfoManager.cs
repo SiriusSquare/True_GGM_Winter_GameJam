@@ -67,6 +67,8 @@ public class InfoManager : MonoSingleton<InfoManager>
                 else
                 {
                     infoData[i].image.sprite = lockedSprite;
+                    infoData[i].TitleText.text = "????";
+                    infoData[i].DescriptionText.text = "잠금 해제 조건을 달성해야 볼 수 있습니다.";
                 }
             }
         }
