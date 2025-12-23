@@ -1,40 +1,37 @@
 ﻿using UnityEngine;
-using System.ComponentModel;
+using System.Linq;
 
 #if UNITY_EDITOR
-using UnityEditor; // MonoScript 사용
+using UnityEditor;
 #endif
-using System.Linq;
 
 public class ObjectDetectionPad : MonoBehaviour
 {
     [Header("Condition")]
 #if UNITY_EDITOR
-    public MonoScript targetScript; // 에셋에서 직접 스크립트 지정 가능
+    public MonoScript targetScript;
 #endif
-    public bool needTypeCheck = false;  // 타입 검사 여부
+    public bool needTypeCheck = false;
     public string needType;
 
-    public bool needColorCheck = false; // 색상 검사 여부
-    public Color needColor;
+    public bool needColorCheck = false;
+    public Color needColor; // 인스펙터에서 찍는 색상
 
-    [field:SerializeField, _JJM.Script.CustomEditor.ReadOnly] public bool isClear { get; private set; }
+    [field: SerializeField] public bool isClear { get; private set; }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         var obj = other.GetComponent<AbstractObjectScript>();
         if (obj == null) return;
 
-        // 🔽 기본 무시 조건
-        if (!obj.Activated) return;
-        if (obj.Grabed) return;
+        // 기본 무시 조건
+        if (!obj.Activated) { isClear = false; return; }
+        if (obj.Grabed) { isClear = false; return; }
 
-        // 🔽 조건 검사
-        if (!IsTypeMatch(obj)) return;
-        if (!IsColorMatch(obj)) return;
-        if (!IsSameConcreteType(obj)) return;
+        // 조건 검사
+        bool match = IsTypeMatch(obj) && IsColorMatch(obj) && IsSameConcreteType(obj);
 
-        isClear = true;
+        isClear = match;
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -42,8 +39,8 @@ public class ObjectDetectionPad : MonoBehaviour
         var obj = other.GetComponent<AbstractObjectScript>();
         if (obj == null) return;
 
-        if (IsSameConcreteType(obj))
-            isClear = false;
+        // 나가면 무조건 클리어 해제 (혹은 타입 체크 후 해제)
+        isClear = false;
     }
 
     /* =========================
@@ -53,28 +50,24 @@ public class ObjectDetectionPad : MonoBehaviour
     bool IsTypeMatch(AbstractObjectScript obj)
     {
         if (!needTypeCheck || string.IsNullOrEmpty(needType)) return true;
-
-        return obj.ObjectType != null &&
-               obj.ObjectType.Contains(needType);
+        return obj.ObjectType != null && obj.ObjectType.Contains(needType);
     }
 
     bool IsColorMatch(AbstractObjectScript obj)
     {
         if (!needColorCheck) return true;
 
-        if (obj.TryGetComponent<SpriteRenderer>(out var sr))
-        {
-            return sr.color == needColor;
-        }
-        return false;
+        // 🔹 색상 코드로 비교 (RGB만 추출하여 비교)
+        string targetHex = ColorUtility.ToHtmlStringRGB(needColor);
+        string objHex = ColorUtility.ToHtmlStringRGB(obj.ObjectColor);
+
+        return targetHex == objHex;
     }
 
     bool IsSameConcreteType(AbstractObjectScript obj)
     {
 #if UNITY_EDITOR
         if (targetScript == null) return true;
-
-        // 🔥 핵심: MonoScript로 타입 비교
         return obj.GetType() == targetScript.GetClass();
 #else
         return true;

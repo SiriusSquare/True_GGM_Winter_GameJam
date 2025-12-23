@@ -13,6 +13,8 @@ public class UsedItemEvent
 
 public abstract class AbstractObjectScript : MonoBehaviour
 {
+
+    public int soundIndex = 0;
     [field: SerializeField] public bool Triggerable { get; protected set; } = true;
     [field: SerializeField] public bool NoActiveChange { get; protected set; }
     [field: SerializeField] public string[] ObjectType { get; protected set; }
