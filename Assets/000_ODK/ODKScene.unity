@@ -8254,8 +8254,8 @@ GameObject:
   - component: {fileID: 1165905982}
   - component: {fileID: 1165905981}
   - component: {fileID: 1165905980}
-  - component: {fileID: 1165905979}
   - component: {fileID: 1165905978}
+  - component: {fileID: 1165905984}
   m_Layer: 7
   m_Name: Box (3)
   m_TagString: Untagged
@@ -8287,7 +8287,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8313,7 +8313,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -8356,7 +8356,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -8370,56 +8370,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &1165905979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165905977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Triggerable>k__BackingField: 0
-  <NoActiveChange>k__BackingField: 0
-  <ObjectType>k__BackingField: []
-  <Activated>k__BackingField: 1
-  <isGrabable>k__BackingField: 1
-  <isInteractable>k__BackingField: 1
-  <ObjectColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
-  spriteRenderer: {fileID: 1165905982}
-  selectRenderer: {fileID: 2076493986}
-  <Grabed>k__BackingField: 0
-  <IsConsumerble>k__BackingField: 0
-  <UseableObjectType>k__BackingField: []
-  <GrabTarget>k__BackingField: {fileID: 0}
-  grabDistance: 0.5
-  followSpeed: 15
-  gridSize: 1
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  onInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  onDrop:
-    m_PersistentCalls:
-      m_Calls: []
-  onActive:
-    m_PersistentCalls:
-      m_Calls: []
-  onDisable:
-    m_PersistentCalls:
-      m_Calls: []
-  onTrigger:
-    m_PersistentCalls:
-      m_Calls: []
-  useItemEvent: []
 --- !u!50 &1165905980
 Rigidbody2D:
   serializedVersion: 5
@@ -8564,6 +8514,61 @@ Transform:
   - {fileID: 2076493987}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1165905984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165905977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d507b609e3933e34ebfdcb2de39833b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Triggerable>k__BackingField: 1
+  <NoActiveChange>k__BackingField: 0
+  <ObjectType>k__BackingField: []
+  <Activated>k__BackingField: 1
+  <isGrabable>k__BackingField: 0
+  <isInteractable>k__BackingField: 1
+  <ObjectColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+  spriteRenderer: {fileID: 0}
+  selectRenderer: {fileID: 0}
+  <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
+  <GrabTarget>k__BackingField: {fileID: 0}
+  grabDistance: 0.5
+  followSpeed: 15
+  gridSize: 1
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  onActive:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  useItemEvent: []
+  dir: {x: 1, y: 0}
+  maxDistance: 50
+  blockRayLayer:
+    serializedVersion: 2
+    m_Bits: 640
 --- !u!1001 &1219972849
 PrefabInstance:
   m_ObjectHideFlags: 0
