@@ -1,34 +1,40 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class RayMachine : AbstractObjectScript
 {
     [Header("Ray Settings")]
-    public Vector2Int dir = Vector2Int.right; // ¹ß»ç ¹æÇâ
-    [SerializeField] private float maxDistance = 50f; // ÃÖ´ë °Å¸®
-    [SerializeField] private LayerMask blockRayLayer; // ·¹ÀÌÀú¸¦ ¸·À» ·¹ÀÌ¾î
+    public Vector2Int dir = Vector2Int.right; // ë°œì‚¬ ë°©í–¥
+    [SerializeField] private float maxDistance = 50f; // ìµœëŒ€ ê±°ë¦¬
+    [SerializeField] private LayerMask blockRayLayer; // ë ˆì´ì €ë¥¼ ë§‰ì„ ë ˆì´ì–´
 
     private LineRenderer lineRenderer;
-
+    private bool layenable = true;
     protected override void Awake()
     {
         base.Awake();
         lineRenderer = GetComponent<LineRenderer>();
 
-        // ¶óÀÎ·»´õ·¯ ÃÊ±â ¼³Á¤ (Position Count°¡ 2°³ ÇÊ¿ä: ½ÃÀÛÁ¡, ³¡Á¡)
+        // ë¼ì¸ë Œë”ëŸ¬ ì´ˆê¸° ì„¤ì • (Position Countê°€ 2ê°œ í•„ìš”: ì‹œì‘ì , ëì )
         if (lineRenderer != null)
         {
             lineRenderer.positionCount = 2;
         }
     }
-
+    public void RayEnable()
+    {
+        layenable = true;
+    }
+    public void RayDisable()
+    {
+        layenable = false;
+    }
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-
         if (lineRenderer == null) return;
 
-        // È°¼ºÈ­ »óÅÂÀÏ ¶§¸¸ ·¹ÀÌÀú ¹ß»ç
-        if (Activated)
+        // í™œì„±í™” ìƒíƒœì¼ ë•Œë§Œ ë ˆì´ì € ë°œì‚¬
+        if (Activated && layenable)
         {
             lineRenderer.enabled = true;
             UpdateRay();
@@ -38,40 +44,63 @@ public class RayMachine : AbstractObjectScript
             lineRenderer.enabled = false;
         }
     }
-
     private void UpdateRay()
     {
-        // 1. ½ÃÀÛ À§Ä¡ ¼³Á¤
         Vector3 startPos = transform.position;
-        lineRenderer.SetPosition(0, startPos);
-
-        // 2. ¹æÇâ º¤ÅÍ °è»ê (Vector2Int¸¦ Vector3·Î º¯È¯)
         Vector3 direction = new Vector3(dir.x, dir.y, 0).normalized;
 
-        // 3. ·¹ÀÌÄ³½ºÆ® ¹ß»ç
-        RaycastHit2D hit = Physics2D.Raycast(startPos, direction, maxDistance, blockRayLayer);
+        // ì‹œì‘ ì§€ì  ì˜¤í”„ì…‹ (ìê¸° ìì‹  í†µê³¼ìš©)
+        Vector3 rayStartPoint = startPos + (direction * 0.6f);
+        lineRenderer.SetPosition(0, startPos);
+
+        // ğŸ”¹ ë°©ë²• 1: í˜„ì¬ ë ˆì´ìºìŠ¤íŠ¸ê°€ íŠ¸ë¦¬ê±°ë¥¼ ë¬´ì‹œí•˜ë„ë¡ ì „ì—­ ì„¤ì • ì ì‹œ ë³€ê²½
+        bool oldQueriesHitTriggers = Physics2D.queriesHitTriggers;
+        Physics2D.queriesHitTriggers = false; // íŠ¸ë¦¬ê±° ë¬´ì‹œ ì„¤ì •
+
+        // ë ˆì´ìºìŠ¤íŠ¸ ë°œì‚¬
+        RaycastHit2D hit = Physics2D.Raycast(rayStartPoint, direction, maxDistance, blockRayLayer);
+
+        // ğŸ”¹ ì„¤ì •ì„ ë‹¤ì‹œ ì›ë˜ëŒ€ë¡œ ë³µêµ¬ (ë‹¤ë¥¸ ë¡œì§ì— ì˜í–¥ ì£¼ì§€ ì•Šê¸° ìœ„í•¨)
+        Physics2D.queriesHitTriggers = oldQueriesHitTriggers;
 
         Vector3 endPos;
 
         if (hit.collider != null)
         {
             endPos = hit.point;
-            if (endPos != lineRenderer.GetPosition(1))
+
+            // íŠ¸ë¦¬ê±°ê°€ ì•„ë‹Œ ì½œë¼ì´ë”ë§Œ ê°ì§€ë˜ì—ˆìœ¼ë¯€ë¡œ ë°”ë¡œ ë¡œì§ ìˆ˜í–‰
+            if (hit.collider.TryGetComponent<AbstractObjectScript>(out var objScript))
             {
-                if (hit.collider.gameObject.GetComponent<AbstractObjectScript>().Triggerable)
+                if (objScript.Triggerable)
                 {
-                    hit.collider.gameObject.GetComponent<AbstractObjectScript>().Trigger();
-
+                    objScript.Trigger();
                 }
-                
             }
-
         }
         else
         {
             endPos = startPos + (direction * maxDistance);
         }
-        
+
         lineRenderer.SetPosition(1, endPos);
+    }
+
+    // ì™¼ìª½ìœ¼ë¡œ 90ë„ íšŒì „ (ë°˜ì‹œê³„ ë°©í–¥)
+    public void RotateLeft()
+    {
+        // (x, y) -> (-y, x)
+        // ì˜ˆ: (1, 0) [ìš°] -> (0, 1) [ìƒ] -> (-1, 0) [ì¢Œ] -> (0, -1) [í•˜]
+        dir = new Vector2Int(-dir.y, dir.x);
+        Debug.Log($"[RayMachine] ì™¼ìª½ íšŒì „: {dir}");
+    }
+
+    // ì˜¤ë¥¸ìª½ìœ¼ë¡œ 90ë„ íšŒì „ (ì‹œê³„ ë°©í–¥)
+    public void RotateRight()
+    {
+        // (x, y) -> (y, -x)
+        // ì˜ˆ: (1, 0) [ìš°] -> (0, -1) [í•˜] -> (-1, 0) [ì¢Œ] -> (0, 1) [ìƒ]
+        dir = new Vector2Int(dir.y, -dir.x);
+        Debug.Log($"[RayMachine] ì˜¤ë¥¸ìª½ íšŒì „: {dir}");
     }
 }

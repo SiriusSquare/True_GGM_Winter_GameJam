@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class GrabObjectContainer : MonoBehaviour
 {
@@ -227,51 +226,73 @@ public class GrabObjectContainer : MonoBehaviour
         mp.z = -cam.transform.position.z;
         Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mp);
 
-        if (!IsInside3x3(mouseWorldPos)) return;
+        if (!IsInside3x3(mouseWorldPos))
+        {
+            Debug.Log("[RightClick] 사거리 밖입니다.");
+            return;
+        }
 
         Vector2Int mouseGrid = WorldToGrid(mouseWorldPos);
         Vector2Int selfGrid = WorldToGrid(transform.position);
 
-        // 🔥 자기 위치 아래 설치 금지
         if (mouseGrid == selfGrid)
+        {
+            Debug.Log("[RightClick] 자기 자신 위치에는 설치/사용 불가.");
             return;
+        }
+
+        // 1. 레이어 체크 확인
         Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, noDropLayer);
         if (hit != null)
         {
-            if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript abstractObjectScript) && abstractObjectScript.UseableObjectType.Length > 0)
+            Debug.Log($"[RightClick] 충돌 감지: {hit.name} (Layer: {LayerMask.LayerToName(hit.gameObject.layer)})");
+
+            if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript groundTarget))
             {
-                foreach (var useType in abstractObjectScript.UseableObjectType)
+                Debug.Log($"[RightClick] 타겟 오브젝트 '{groundTarget.name}' 발견. 이벤트 개수: {groundTarget.useItemEvent.Length}");
+
+                foreach (var eventData in groundTarget.useItemEvent)
                 {
                     foreach (var grabObj in GrabArray)
                     {
-                        if (grabObj.ObjectType.Contains(useType))
+                        // 디버그용 타입 비교 출력
+                        Debug.Log($"[RightClick] 비교 시도: 들고있는것({string.Join(",", grabObj.ObjectType)}) vs 바닥요구({eventData.type})");
+
+                        if (grabObj.ObjectType.Contains(eventData.type))
                         {
-                            abstractObjectScript.Use(useType);
+                            Debug.Log($"<color=cyan>[RightClick] 일치 확인! 아이템 {grabObj.name}을 사용하여 {groundTarget.name}의 {eventData.type} 실행</color>");
+
+                            groundTarget.Use(eventData.type);
+
                             if (grabObj.IsConsumerble)
-                            {
-                                
                                 grabObj.Consum(mouseWorldPos);
-                            }
                             else
-                            {
                                 grabObj.UseNoConsume(mouseWorldPos);
-                            }
-                                return;
+
+                            return;
                         }
                     }
                 }
-
+                Debug.Log("[RightClick] 들고 있는 아이템 중 타겟이 요구하는 타입과 일치하는 것이 없습니다.");
             }
             else
             {
-                return;
+                Debug.Log("[RightClick] 충돌체는 있으나 AbstractObjectScript가 없습니다.");
             }
+            return;
         }
 
+        // 2. 아이템 내려놓기 단계
+        Debug.Log("[RightClick] 빈 공간입니다. 아이템 내려놓기를 시도합니다.");
         AbstractObjectScript target = GetLastObject();
         if (target != null)
         {
+            Debug.Log($"[RightClick] {target.name} 드롭.");
             target.Down(mouseWorldPos);
+        }
+        else
+        {
+            Debug.Log("[RightClick] 내려놓을 아이템이 없습니다.");
         }
     }
 

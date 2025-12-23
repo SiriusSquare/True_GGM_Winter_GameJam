@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Code.Core;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 [System.Serializable]
 public class StageData
@@ -29,6 +30,7 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
     [SerializeField] private Color lockedNodeColor = Color.gray;
     [SerializeField] private Color unlockedNodeColor = Color.white;
 
+    [SerializeField] private TextMeshProUGUI[] tmps;
     private class GeneratedLine
     {
         public LineRenderer bg;   
@@ -171,6 +173,7 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
         lr.endWidth = lineWidth;
         lr.useWorldSpace = true;
         lr.sortingOrder = order;
+        lr.sortingLayerName = "Ground";
         return lr;
     }
 
@@ -184,9 +187,24 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
             if (mesh != null) mesh.material.color = color;
         }
     }
-
+    private void OnValidate()
+    {
+        if (tmps != null && stages != null)
+        {
+            for(int i = 0; i < tmps.Length; i++)
+            {
+                if (stages[i].stageName == null) continue;
+                if (i < stages.Count && tmps[i] != null)
+                {
+                    tmps[i].text = stages[i].stageName;
+                }
+            }
+        }
+    }
     private void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space)) ClearStageAndFillLine();
+#endif
     }
 }
