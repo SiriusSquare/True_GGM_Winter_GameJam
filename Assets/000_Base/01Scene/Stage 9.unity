@@ -1070,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7660255371445122863, guid: cd412e5fcf18e8940b9ffb16279fd68b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 368.4722
+      value: 368.47217
       objectReference: {fileID: 0}
     - target: {fileID: 7662672128725001869, guid: cd412e5fcf18e8940b9ffb16279fd68b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2488,6 +2488,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3489801738571602163, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489801738571602163, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: a469cb31bc4250f4e922b3f05277cf56, type: 3}
     - target: {fileID: 5813519834272344812, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
       propertyPath: m_Name
       value: AudioManagerGourop

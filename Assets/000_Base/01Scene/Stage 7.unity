@@ -3374,9 +3374,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3489801738571602163, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489801738571602163, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: bfd56e8561eeaa244851e3cfce77b9be, type: 3}
+      objectReference: {fileID: 8300000, guid: 397ab539bb58683498aaad4048fb0ad5, type: 3}
     - target: {fileID: 5813519834272344812, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
       propertyPath: m_Name
       value: AudioManagerGourop

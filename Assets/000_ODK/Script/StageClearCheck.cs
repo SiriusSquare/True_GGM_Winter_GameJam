@@ -31,14 +31,14 @@ public class StageClearCheck : MonoBehaviour
         {
             isCleared = true;
             AH_StageManager.Instance.ClearStageAndFillLine();
-            if (SceneManager.GetActiveScene().buildIndex != 12)
+            if (SceneManager.GetActiveScene().buildIndex != 11)
             {
                 Debug.Log("Stage Clear!");
                 StartCoroutine(ReturnScene());
             }
             else
             {
-                SceneChangeManager.Instance.ChangeScene(13);
+                SceneChangeManager.Instance.ChangeScene(12);
             }
         }
     }
