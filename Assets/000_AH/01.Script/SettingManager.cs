@@ -336,6 +336,8 @@ public class SettingManager : MonoSingleton<SettingManager>
 
     public void OpenSetting()
     {
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlaySFX(5);
         if (panelRect == null)
         {
             panelRect = GetComponent<RectTransform>();

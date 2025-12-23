@@ -110,6 +110,8 @@ public class UIManager : MonoSingleton<UIManager>
     }
     public IEnumerator ResetBtn()
     {
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlaySFX(5);
         yield return new WaitForSeconds(1f);
         SceneChangeManager.Instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -145,6 +147,8 @@ public class UIManager : MonoSingleton<UIManager>
     {
         if (_menuParent == null) return;
 
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlaySFX(5);
         bool willOpen = !_menuParent.activeSelf;
 
         if (willOpen)
