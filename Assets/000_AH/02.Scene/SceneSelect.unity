@@ -453,7 +453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC0C1\uC790\uB97C \uB4E4\uACE0 \uD50C\uB808\uC774 \uD558\uACE0 \uC2F6\uC740
+  m_text: "\uBC15\uC950\uB97C \uB4E4\uACE0 \uD50C\uB808\uC774 \uD558\uACE0 \uC2F6\uC740
     \uC2A4\uD14C\uC774\uC9C0 \uC704\uC5D0 \uC62C\uB824\uC8FC\uC138\uC694."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02773d7d64e8ac64fbbaf20ac4fe6bba, type: 2}
