@@ -3735,6 +3735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8593987040237892292, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: needColor.b
+      value: 0.99607843
+      objectReference: {fileID: 0}
     - target: {fileID: 8665890598114745571, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
       propertyPath: m_Name
       value: ObjectDetectionPad
