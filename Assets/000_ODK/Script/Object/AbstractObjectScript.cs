@@ -44,7 +44,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [SerializeField] protected UnityEvent onActive;
     [SerializeField] protected UnityEvent onDisable;
     [SerializeField] protected UnityEvent onTrigger;
-    [SerializeField] protected UsedItemEvent[] useItemEvent;
+    [SerializeField] public UsedItemEvent[] useItemEvent;
 
     private PlayerFlip _flip;
 
