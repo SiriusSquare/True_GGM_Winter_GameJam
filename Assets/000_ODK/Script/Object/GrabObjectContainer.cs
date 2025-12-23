@@ -14,7 +14,7 @@ public class GrabObjectContainer : MonoBehaviour
 
     private Vector2Int mouseVector;
     [SerializeField] private Transform mouseEffect;
-
+    [SerializeField] private Transform ditectionEffect;
     private AbstractObjectScript currentHover;
     [field:SerializeField] public List<AbstractObjectScript> GrabArray { get; private set; }
 
@@ -40,7 +40,7 @@ public class GrabObjectContainer : MonoBehaviour
     public void FixedUpdate()
     {
         if (Camera.main == null) return;
-
+        ditectionEffect.localScale = new Vector3(grabRange * gridSize.x, grabRange * gridSize.y, 1f);
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
 
