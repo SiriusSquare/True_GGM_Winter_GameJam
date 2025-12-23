@@ -63,7 +63,7 @@ MonoBehaviour:
   grabRange: 3
   maxCapacity: 1
   mouseEffect: {fileID: 0}
-  ditectionEffect: {fileID: 0}
+  ditectionEffect: {fileID: 3271988500932541000}
   <GrabArray>k__BackingField: []
   fadeDistance: 3
   fadeDuration: 0.2
