@@ -9,5 +9,6 @@ public class TNTBlock : MonoBehaviour
         GameObject ex = PoolManager.Instance.Pop(_tntPrefab);
         ex.transform.position = transform.position;
         gameObject.SetActive(false);
+        CameraManager.Instance.CameraShaking();
     }
 }
