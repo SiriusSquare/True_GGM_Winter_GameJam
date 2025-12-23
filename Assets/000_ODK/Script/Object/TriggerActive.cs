@@ -16,6 +16,7 @@ public class TriggerActive : AbstractObjectScript
             }
             
         }
+        base.Interact();
     }
 
 }

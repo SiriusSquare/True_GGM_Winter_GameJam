@@ -9,7 +9,6 @@ public class MagneticPoint : AbstractObjectScript
 
         base.Interact();
         objectCollider.enabled = false; // 충돌 비활성
-                                        // 화
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOMove(player.transform.position, 0.1f).SetEase(ease));
         seq.Append(spriteRenderer.DOFade(0f, 0.1f).SetEase(ease));

@@ -19,7 +19,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [field: SerializeField] public bool Activated { get; protected set; } = true;
     [field: SerializeField] public bool isGrabable { get; protected set; }
     [field: SerializeField] public bool isInteractable { get; protected set; } = true;
-    [field: SerializeField] public Color ObjectColor { get; protected set; } = Color.white;
+    public Color ObjectColor { get; protected set; } = Color.white;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] protected SpriteRenderer selectRenderer;
 
@@ -44,7 +44,8 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [SerializeField] protected UnityEvent onActive;
     [SerializeField] protected UnityEvent onDisable;
     [SerializeField] protected UnityEvent onTrigger;
-    [SerializeField] protected UsedItemEvent[] useItemEvent;
+    [SerializeField] protected UnityEvent onTrigger2;
+    [SerializeField] public UsedItemEvent[] useItemEvent;
 
     private PlayerFlip _flip;
 
@@ -55,6 +56,15 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         objectCollider = GetComponent<Collider2D>();
         objectRigidbody = GetComponent<Rigidbody2D>();
+        if (Activated == false)
+        {
+            Disable();
+        }
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        }
+        ObjectColor = spriteRenderer.color;
        
         if (selectRenderer != null)
             selectRenderer.color = new Color(1, 1, 1, 0);
@@ -75,7 +85,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         Activated = false;
         objectCollider.isTrigger = true;
-        spriteRenderer.DOFade(0.4f, 0.2f).SetEase(ease);
+        spriteRenderer.DOFade(0.12f, 0.2f).SetEase(ease);
         onDisable?.Invoke();
     }
 
@@ -180,7 +190,10 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         onTrigger?.Invoke();
     }
-
+    public virtual void Trigger2()
+    {
+        onTrigger2?.Invoke();
+    }
     public virtual void Down(Vector3 Pos)
     {
         if (!Grabed) return;
