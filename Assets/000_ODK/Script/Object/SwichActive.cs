@@ -11,7 +11,8 @@ public class SwichActive : AbstractObjectScript
     {
         base.Awake();
         switchedOnSpriteRenderer.color = ObjectColor;
-        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.6f, 0.6f, 0.6f);
+        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.7f, 0.7f, 0.7f);
+        
         if (switched)
         {
             switchedOnSpriteRenderer.gameObject.SetActive(true);
@@ -61,7 +62,7 @@ public class SwichActive : AbstractObjectScript
     private void OnValidate()
     {
         switchedOnSpriteRenderer.color = ObjectColor;
-        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.6f, 0.6f, 0.6f);
+        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.7f, 0.7f, 0.7f);
     }
 #endif
 

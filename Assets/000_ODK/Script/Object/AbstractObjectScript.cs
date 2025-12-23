@@ -56,6 +56,10 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         objectCollider = GetComponent<Collider2D>();
         objectRigidbody = GetComponent<Rigidbody2D>();
+        if (Activated == false)
+        {
+            Disable();
+        }
         if (spriteRenderer == null)
         {
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -81,7 +85,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         Activated = false;
         objectCollider.isTrigger = true;
-        spriteRenderer.DOFade(0.4f, 0.2f).SetEase(ease);
+        spriteRenderer.DOFade(0.12f, 0.2f).SetEase(ease);
         onDisable?.Invoke();
     }
 
