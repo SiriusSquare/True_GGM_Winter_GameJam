@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class GrabObjectContainer : MonoBehaviour
 {
@@ -18,6 +17,11 @@ public class GrabObjectContainer : MonoBehaviour
     private AbstractObjectScript currentHover;
     [field:SerializeField] public List<AbstractObjectScript> GrabArray { get; private set; }
 
+    private AudioSource audioSource;
+
+
+    [SerializeField] private AudioClip grabSound;
+
     void Update()
     {
         UpdateHover();
@@ -26,6 +30,14 @@ public class GrabObjectContainer : MonoBehaviour
 
     public float fadeDistance = 3f; // 마우스와의 거리 기준
     public float fadeDuration = 0.2f;
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     public void PlusMaxCapacity()
     {
@@ -199,20 +211,16 @@ public class GrabObjectContainer : MonoBehaviour
                 }
                 else
                 {
-                    currentHover.MouseDown();
+                    HandleRightClick();
                 }
+                audioSource.PlayOneShot(grabSound);
             }
-            // 2. 마우스 아래에 아무것도 없는 빈 공간인 경우 -> 아이템 설치 시도
             else
             {
                 HandleRightClick();
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            HandleRightClick();
-        }
     }
 
     // 좌클릭으로 빈 공간에 설치할 때 호출할 함수
@@ -240,9 +248,12 @@ public class GrabObjectContainer : MonoBehaviour
             if (target != null)
             {
                 target.Down(mouseWorldPos);
+                audioSource.PlayOneShot(grabSound);
             }
+
         }
     }
+
 
     Vector2Int WorldToGrid(Vector3 worldPos)
     {
@@ -292,6 +303,7 @@ public class GrabObjectContainer : MonoBehaviour
                         }
                     }
                 }
+                audioSource.PlayOneShot(grabSound);
 
             }
             else
