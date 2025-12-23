@@ -9,7 +9,7 @@ public class StageClearCheck : MonoBehaviour
         detectionPads = GetComponentsInChildren<ObjectDetectionPad>();
     }
 
-    public bool IsStageClear()
+    public bool IsStageClear()                                                      
     {
         foreach (var pad in detectionPads)
         {
@@ -28,6 +28,7 @@ public class StageClearCheck : MonoBehaviour
         {
             Debug.Log("Stage Clear!");
             isCleared = true;
+            AH_StageManager.Instance.ClearStageAndFillLine();
         }
     }
 }

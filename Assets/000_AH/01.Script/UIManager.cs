@@ -38,7 +38,8 @@ public class UIManager : MonoSingleton<UIManager>
         {
             _gameStartText.transform.DOScale(1, 0.1f);
         }
-        _resetBtn = _resetImage.GetComponent<Button>();
+        if (_resetImage != null)
+            _resetBtn = _resetImage.GetComponent<Button>();
         if (_menuParent != null)
         {
             _menuRect = _menuParent.GetComponent<RectTransform>();
@@ -120,11 +121,20 @@ public class UIManager : MonoSingleton<UIManager>
                 .SetEase(Ease.OutCubic);
         }
     }
-
+    public void GameStart()
+    {
+        SceneChangeManager.Instance.ChangeScene(1);
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
     public void SetStageText(string stage)
     {
-        _stageText.text = stage;
-        _gameStartText.text = stage;
+        if(_stageText != null)
+            _stageText.text = stage;
+        if(_gameStartText != null)
+            _gameStartText.text = stage;
     }
 
     public void MenuClick()
