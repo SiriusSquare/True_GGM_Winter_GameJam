@@ -23,6 +23,7 @@ public class FadeManager : MonoSingleton<FadeManager>
 
     public void FadeOut()
     {
+        _canva.sortingOrder = 100;
         Debug.Log("¾Æ¿ô");
         _seq = DOTween.Sequence().SetUpdate(true);
         _seq.Append(_image.DOFade(1, 0));
