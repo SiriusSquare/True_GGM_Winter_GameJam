@@ -1259,7 +1259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7660255371445122863, guid: cd412e5fcf18e8940b9ffb16279fd68b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 368.47235
+      value: 368.47287
       objectReference: {fileID: 0}
     - target: {fileID: 7662672128725001869, guid: cd412e5fcf18e8940b9ffb16279fd68b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1560,6 +1560,10 @@ PrefabInstance:
       propertyPath: <NoActiveChange>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
     - target: {fileID: 3737853365429024258, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -2114,6 +2118,10 @@ PrefabInstance:
       propertyPath: <NoActiveChange>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
     - target: {fileID: 3737853365429024258, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -2184,6 +2192,10 @@ PrefabInstance:
       propertyPath: <NoActiveChange>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
     - target: {fileID: 3737853365429024258, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -5581,6 +5593,10 @@ PrefabInstance:
       propertyPath: <NoActiveChange>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
     - target: {fileID: 3737853365429024258, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -5733,6 +5749,10 @@ PrefabInstance:
       propertyPath: <NoActiveChange>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
     - target: {fileID: 3737853365429024258, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -11796,6 +11816,10 @@ PrefabInstance:
       propertyPath: <NoActiveChange>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3716907063215746577, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4857449911701000724, guid: f34a08e80e528604b8891a62298e20d7, type: 3}
     - target: {fileID: 3737853365429024258, guid: 7f25a56167525d9448c77d107d4a14b6, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -11869,6 +11893,18 @@ PrefabInstance:
     - target: {fileID: 6841657140514801768, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593987040237892292, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: needColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593987040237892292, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: needColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593987040237892292, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: needColor.r
+      value: 0.99607843
       objectReference: {fileID: 0}
     - target: {fileID: 8665890598114745571, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
       propertyPath: m_Name

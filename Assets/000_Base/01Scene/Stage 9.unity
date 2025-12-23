@@ -1070,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7660255371445122863, guid: cd412e5fcf18e8940b9ffb16279fd68b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 368.4722
+      value: 368.47275
       objectReference: {fileID: 0}
     - target: {fileID: 7662672128725001869, guid: cd412e5fcf18e8940b9ffb16279fd68b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -25680,7 +25680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3602d8e80c0ab8b47adf24f0c0f3af88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Cinemachine>k__BackingField: {fileID: 0}
+  <Cinemachine>k__BackingField: {fileID: 1300488361}
   <CinemachineImpulse>k__BackingField: {fileID: 0}
 --- !u!4 &1407742116
 Transform:
