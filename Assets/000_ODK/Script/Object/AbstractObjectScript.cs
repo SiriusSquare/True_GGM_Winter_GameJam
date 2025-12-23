@@ -317,10 +317,4 @@ public abstract class AbstractObjectScript : MonoBehaviour
         
         
     }
-
-    private void OnMouseDown()
-    {
-        MouseDown();
-    }
-
 }
