@@ -19,7 +19,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
     [field: SerializeField] public bool Activated { get; protected set; } = true;
     [field: SerializeField] public bool isGrabable { get; protected set; }
     [field: SerializeField] public bool isInteractable { get; protected set; } = true;
-    [field: SerializeField] public Color ObjectColor { get; protected set; } = Color.white;
+    public Color ObjectColor { get; protected set; } = Color.white;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] protected SpriteRenderer selectRenderer;
 
@@ -55,6 +55,7 @@ public abstract class AbstractObjectScript : MonoBehaviour
 
         objectCollider = GetComponent<Collider2D>();
         objectRigidbody = GetComponent<Rigidbody2D>();
+        ObjectColor = selectRenderer.color;
        
         if (selectRenderer != null)
             selectRenderer.color = new Color(1, 1, 1, 0);
