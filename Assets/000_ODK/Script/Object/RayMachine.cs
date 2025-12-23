@@ -85,4 +85,22 @@ public class RayMachine : AbstractObjectScript
 
         lineRenderer.SetPosition(1, endPos);
     }
+
+    // 왼쪽으로 90도 회전 (반시계 방향)
+    public void RotateLeft()
+    {
+        // (x, y) -> (-y, x)
+        // 예: (1, 0) [우] -> (0, 1) [상] -> (-1, 0) [좌] -> (0, -1) [하]
+        dir = new Vector2Int(-dir.y, dir.x);
+        Debug.Log($"[RayMachine] 왼쪽 회전: {dir}");
+    }
+
+    // 오른쪽으로 90도 회전 (시계 방향)
+    public void RotateRight()
+    {
+        // (x, y) -> (y, -x)
+        // 예: (1, 0) [우] -> (0, -1) [하] -> (-1, 0) [좌] -> (0, 1) [상]
+        dir = new Vector2Int(dir.y, -dir.x);
+        Debug.Log($"[RayMachine] 오른쪽 회전: {dir}");
+    }
 }
