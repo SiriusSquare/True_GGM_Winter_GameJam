@@ -463,8 +463,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289198847
+  m_fontColor: {r: 1, g: 0.9787647, b: 0.65471697, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1234,6 +1234,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3489801738571602163, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 671a821f98f30ec419d56cdd84eb6966, type: 3}
     - target: {fileID: 5813519834272344812, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
       propertyPath: m_Name
       value: AudioManagerGourop
