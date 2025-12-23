@@ -685,7 +685,6 @@ MonoBehaviour:
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 0
   <isInteractable>k__BackingField: 1
-  <ObjectColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 2877390688627394067}
   selectRenderer: {fileID: 6121388706865320218}
   <Grabed>k__BackingField: 0

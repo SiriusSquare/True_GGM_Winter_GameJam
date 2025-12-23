@@ -57,8 +57,9 @@ MonoBehaviour:
     m_Bits: 128
   noDropLayer:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 1664
   gridSize: {x: 1, y: 1}
+  grabRange: 3
   maxCapacity: 1
   mouseEffect: {fileID: 0}
   <GrabArray>k__BackingField: []

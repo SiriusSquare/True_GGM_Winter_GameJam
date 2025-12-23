@@ -127,6 +127,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 518865780}
     m_Modifications:
+    - target: {fileID: 5488401217890978678, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5488401217890978678, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5488401217890978678, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6841657140514801768, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -316,6 +328,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 518865780}
     m_Modifications:
+    - target: {fileID: 26741544470161679, guid: ebe0a84c0e6fd8b44b30845733a26570, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26741544470161679, guid: ebe0a84c0e6fd8b44b30845733a26570, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 26741544470161679, guid: ebe0a84c0e6fd8b44b30845733a26570, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7563141986518617801, guid: ebe0a84c0e6fd8b44b30845733a26570, type: 3}
       propertyPath: m_Name
       value: Bat
@@ -8664,6 +8688,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 518865780}
     m_Modifications:
+    - target: {fileID: 5488401217890978678, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5488401217890978678, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6841657140514801768, guid: a4826f4898c6bf447bedb914a74d082f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.5
@@ -8726,6 +8758,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 518865780}
     m_Modifications:
+    - target: {fileID: 26741544470161679, guid: ebe0a84c0e6fd8b44b30845733a26570, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 26741544470161679, guid: ebe0a84c0e6fd8b44b30845733a26570, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 26741544470161679, guid: ebe0a84c0e6fd8b44b30845733a26570, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7563141986518617801, guid: ebe0a84c0e6fd8b44b30845733a26570, type: 3}
       propertyPath: m_Name
       value: Bat
