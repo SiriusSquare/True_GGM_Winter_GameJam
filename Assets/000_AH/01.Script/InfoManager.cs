@@ -37,8 +37,8 @@ public class InfoManager : MonoSingleton<InfoManager>
     private Tween activeTween;
     private void Start()
     {
-        Initialize();
         gameObject.SetActive(false);
+        Initialize();
     }
     private void Initialize()
     {
