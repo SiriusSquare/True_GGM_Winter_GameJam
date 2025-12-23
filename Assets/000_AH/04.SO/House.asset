@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8cc9a180ef2ae4bb3557d831193d08, type: 3}
-  m_Name: NormalBox
+  m_Name: House
   m_EditorClassIdentifier: 
-  Title: "\uC77C\uBC18 \uBC15\uC2A4"
-  Description: "\uC790\uC720\uC790\uC81C\uB85C \uC6C0\uC9C1\uC77C \uC218 \uC788\uB2E4"
+  Title: "\uBC15\uC950 \uB465\uC9C0"
+  Description: "\uD14C\uB450\uB9AC\uC5D0 \uB9DE\uB294 \uBC15\uC950\uB97C \uC62C\uB9AC\uBA74
+    \uB41C\uB2E4."
   Image: {fileID: 0}

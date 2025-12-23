@@ -23,7 +23,7 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
 
     [Header("Design Setting")]
     [SerializeField] private float lineWidth = 0.5f;
-    [SerializeField] private Color bgLineColor = Color.gray;     
+    [SerializeField] private Color bgLineColor = Color.gray;
     [SerializeField] private Color fillLineColor = Color.yellow; 
     [SerializeField] private Material lineMaterial;
 
@@ -43,6 +43,8 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
     private List<GeneratedLine> runtimeLines = new List<GeneratedLine>();
     [field: SerializeField, _JJM.Script.CustomEditor.ReadOnly] public int currentStageIndex { get; private set; } = 0;
 
+    public int selectedStageIndex { get; private set; } = 0;
+
     private const string Key = "CurrentIndex";
     private const string SelectSceneName = "SceneSelect";
     private bool isClearAnimationPending = false;
@@ -52,6 +54,7 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
         base.Awake();
         DontDestroyOnLoad(gameObject);
         currentStageIndex = PlayerPrefs.GetInt(Key, 0);
+        selectedStageIndex = currentStageIndex;
     }
     private void OnEnable()
     {
@@ -77,6 +80,7 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
 
         UpdateVisibility();
     }
+
     private void Start()
     {
         if (lineMaterial == null)
@@ -118,12 +122,12 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
     }
     public string GetCurrentStageName()
     {
-        if (currentStageIndex >= 0 && currentStageIndex < stages.Count)
+        if (selectedStageIndex >= 0 && selectedStageIndex < stages.Count)
         {
-            return stages[currentStageIndex].stageName;
+            return stages[selectedStageIndex].stageName;
         }
 
-        return "All Clear!";
+        return "Unknown Stage";
     }
     private void InitializeMap()
     {
@@ -172,6 +176,12 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
 
     public void ClearStageAndFillLine()
     {
+        if (selectedStageIndex < currentStageIndex)
+        {
+            Debug.Log("이미 클리어한 스테이지입니다. 진척도는 오르지 않습니다.");
+            return;
+        }
+
         if (currentStageIndex >= stages.Count) return;
 
         if (IsSelectScene)
@@ -196,6 +206,20 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
         currentStageIndex++;
         PlayerPrefs.SetInt(Key, currentStageIndex);
         PlayerPrefs.Save();
+
+        selectedStageIndex = currentStageIndex;
+    }
+    public void SelectStage(int index)
+    {
+        if (index >= 0 && index < stages.Count)
+        {
+            selectedStageIndex = index;
+            Debug.Log($"스테이지 선택됨: {stages[index].stageName} (Index: {index})");
+        }
+        else
+        {
+            Debug.LogError($"잘못된 스테이지 번호입니다: {index}");
+        }
     }
     private IEnumerator AnimatePendingClearEffect()
     {
@@ -253,7 +277,7 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
         currentStageIndex++;
         PlayerPrefs.SetInt(Key, currentStageIndex);
         PlayerPrefs.Save();
-
+        selectedStageIndex = currentStageIndex; 
         if (nextNode != null)
         {
             SetNodeColor(nextNode, unlockedNodeColor);

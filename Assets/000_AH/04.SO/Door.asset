@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8cc9a180ef2ae4bb3557d831193d08, type: 3}
   m_Name: Door
   m_EditorClassIdentifier: 
-  Title: 
-  Description: 
-  Image: {fileID: 0}
+  Title: "\uBB38"
+  Description: "\uD55C\uBC88 \uC9C0\uB098\uAC00\uBA74 \uB354 \uC774\uC0C1 \uC9C0\uB098\uAC08
+    \uC218 \uC5C6\uB2E4."
+  Image: {fileID: 8040196581939011165, guid: 5efe20ff8133e6542a5fb4fc9e1960ad, type: 3}

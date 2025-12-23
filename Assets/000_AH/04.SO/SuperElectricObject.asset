@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8cc9a180ef2ae4bb3557d831193d08, type: 3}
-  m_Name: BreakObject
+  m_Name: SuperElectricObject
   m_EditorClassIdentifier: 
-  Title: 
-  Description: 
-  Image: {fileID: 0}
+  Title: "\uC288\uD37C \uC804\uAE30 \uC624\uBE0C\uC81D\uD2B8"
+  Description: "\uC804\uAE30 \uC2A4\uC704\uCE58\uB97C \uB2E8 \uC5EC\uB7EC\uBC88 \uC791\uB3D9\uC2DC\uD0AC
+    \uC218 \uC788\uB2E4."
+  Image: {fileID: -1187325487979220362, guid: 97cd9913a4642424aa54c6cb0dee728f, type: 3}
