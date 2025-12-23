@@ -11,6 +11,8 @@ public class DoorClose : MonoBehaviour
     [SerializeField] private Vector2 _upSize;
     [SerializeField] private Vector2 _downOffset;
     [SerializeField] private Vector2 _downSize;
+    [SerializeField] private Vector2 _allOffset;
+    [SerializeField] private Vector2 _allSize;
 
     [SerializeField, ReadOnly] private bool open = false;
 
@@ -26,32 +28,31 @@ public class DoorClose : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private bool downHit = false;
+    private bool upHit = false;
     private void Update()
     {
-        bool upHit = Physics2D.OverlapBox(
-            transform.position + (Vector3)_upOffset,
-            _upSize,
-            0,
-            _layerMask
-        );
+        if (Physics2D.OverlapBox((Vector2)transform.position + _upOffset, _upSize, 0, _layerMask))
+        {
+            upHit = true;
+        }
+        if (Physics2D.OverlapBox((Vector2)transform.position + _downOffset, _downSize, 0, _layerMask))
+        {
+            downHit = true;
+        }
+        bool allHit = Physics2D.OverlapBox((Vector2)transform.position + _allOffset, _allSize, 0, _layerMask);
 
-        bool downHit = Physics2D.OverlapBox(
-            transform.position + (Vector3)_downOffset,
-            _downSize,
-            0,
-            _layerMask
-        );
+        if (!allHit)
+        {
+            upHit = false;
+            downHit = false;
+        }
 
-        if (upHit)
-            upPassed = true;
-
-        if (downHit)
-            downPassed = true;
-
-        if (upPassed && downPassed)
+        if (upHit && downHit && allHit)
         {
             open = true;
         }
+
 
         _spriteRenderer.sprite = open ? _openImage : _closeImage;
         _collider.isTrigger = !open;
@@ -59,10 +60,11 @@ public class DoorClose : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawCube(transform.position + (Vector3)_upOffset, _upSize);
-
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawCube(transform.position + (Vector3)_downOffset, _downSize);
+        Gizmos.color = new Color(0, 1, 0, 0.4f);
+        Gizmos.DrawCube((Vector2)transform.position + _upOffset, _upSize);
+        Gizmos.color = new Color(0, 1, 1, 0.4f);
+        Gizmos.DrawCube((Vector2)transform.position + _downOffset, _downSize);
+        Gizmos.color = new Color(1, 1, 0, 0.4f);
+        Gizmos.DrawCube((Vector2)transform.position + _allOffset, _allSize);
     }
 }
