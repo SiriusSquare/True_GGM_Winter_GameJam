@@ -137,8 +137,10 @@ public abstract class AbstractObjectScript : MonoBehaviour
         
         objectCollider.enabled = false;
         if (selectRenderer != null)
+        {
+            selectRenderer.DOKill();
             selectRenderer.DOFade(0f, 0.1f).SetEase(ease);
-
+        }
         if (objectRigidbody != null)
         {
             objectRigidbody.linearVelocity = Vector2.zero;
@@ -200,7 +202,11 @@ public abstract class AbstractObjectScript : MonoBehaviour
         if (!Grabed) return;
 
         Grabed = false;
-
+        if (selectRenderer != null)
+        {
+            selectRenderer.DOKill();
+            selectRenderer.DOFade(0f, 0.1f).SetEase(ease);
+        }
         float snapX = Mathf.Round(Pos.x / gridSize) * gridSize;
         float snapY = Mathf.Round(Pos.y / gridSize) * gridSize;
 
@@ -242,7 +248,11 @@ public abstract class AbstractObjectScript : MonoBehaviour
     {
         float snapX = Mathf.Round(Pos.x / gridSize) * gridSize;
         float snapY = Mathf.Round(Pos.y / gridSize) * gridSize;
-
+        if (selectRenderer != null)
+        {
+            selectRenderer.DOKill();
+            selectRenderer.DOFade(0f, 0.1f).SetEase(ease);
+        }
         Vector3 dropPos = new Vector3(snapX, snapY, transform.position.z);
         transform.DOMove(dropPos, 0.1f)
             .SetEase(ease)
@@ -276,7 +286,11 @@ public abstract class AbstractObjectScript : MonoBehaviour
         if (!Grabed) return;
 
         Grabed = false;
-
+        if (selectRenderer != null)
+        {
+            selectRenderer.DOKill();
+            selectRenderer.DOFade(0f, 0.1f).SetEase(ease);
+        }
         float snapX = Mathf.Round(Pos.x / gridSize) * gridSize;
         float snapY = Mathf.Round(Pos.y / gridSize) * gridSize;
 

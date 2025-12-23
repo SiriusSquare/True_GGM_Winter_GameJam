@@ -192,8 +192,14 @@ public class GrabObjectContainer : MonoBehaviour
 
         if (hit != null)
         {
+            
             if (hit.TryGetComponent<AbstractObjectScript>(out AbstractObjectScript interactiveObj))
             {
+
+                if ( interactiveObj.isInteractable)
+                {
+                    interactiveObj.Interact();
+                }
                 if (interactiveObj.UseableObjectType.Length > 0)
                 {
                     foreach (var useType in interactiveObj.UseableObjectType)
@@ -215,6 +221,7 @@ public class GrabObjectContainer : MonoBehaviour
                         }
                     }
                 }
+
             }
 
             if (((1 << hit.gameObject.layer) & noDropLayer) != 0)
