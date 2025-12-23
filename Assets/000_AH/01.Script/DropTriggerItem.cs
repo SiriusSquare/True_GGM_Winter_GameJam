@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Linq;
 
 public class DropTriggerItem : AbstractObjectScript
@@ -54,7 +54,7 @@ public class DropTriggerItem : AbstractObjectScript
         {
             if (AH_StageManager.Instance.IsStageLocked(targetStageIndex))
             {
-                Debug.Log($"ÀÌ ³ğ {targetStageIndex} ¾È¿­¸®ÁÒ ¤»{AH_StageManager.Instance.currentStageIndex})");
+                Debug.Log($"ì´ ë†ˆ {targetStageIndex} ì•ˆì—´ë¦¬ì£  ã…‹{AH_StageManager.Instance.currentStageIndex})");
                 return;
             }
         }

@@ -11,6 +11,9 @@ public class StageData
 {
     public string stageName;
     public GameObject nodeObject;
+
+    [Header("Popup Info")]
+    public List<Info> infos = new();
 }
 
 public class AH_StageManager : MonoSingleton<AH_StageManager>
@@ -22,7 +25,7 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
     [SerializeField] private float lineWidth = 0.5f;
     [SerializeField] private Color bgLineColor = Color.gray;     
     [SerializeField] private Color fillLineColor = Color.yellow; 
-    [SerializeField] private Material lineMaterial;              
+    [SerializeField] private Material lineMaterial;
 
     [Header("Animation Setting")]
     [SerializeField] private float fillDuration = 1.0f;
@@ -31,18 +34,24 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
     [SerializeField] private Color unlockedNodeColor = Color.white;
 
     [SerializeField] private TextMeshProUGUI[] tmps;
+
     private class GeneratedLine
     {
         public LineRenderer bg;   
         public LineRenderer fill; 
     }
     private List<GeneratedLine> runtimeLines = new List<GeneratedLine>();
-    public int currentStageIndex = 0;
+    [field: SerializeField, _JJM.Script.CustomEditor.ReadOnly] public int currentStageIndex { get; private set; } = 0;
 
+    private const string Key = "CurrentIndex";
+    private const string SelectSceneName = "SceneSelect";
+    private bool isClearAnimationPending = false;
+    private bool IsSelectScene => SceneManager.GetActiveScene().name == SelectSceneName;
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
+        currentStageIndex = PlayerPrefs.GetInt(Key, 0);
     }
     private void OnEnable()
     {
@@ -54,6 +63,18 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        PlayerPrefs.SetInt(Key, currentStageIndex);
+        ClearMapVisuals();
+
+        if (IsSelectScene)
+        {
+            InitializeMap();
+            if (isClearAnimationPending)
+            {
+                StartCoroutine(AnimatePendingClearEffect());
+            }
+        }
+
         UpdateVisibility();
     }
     private void Start()
@@ -67,14 +88,33 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
         }
         UpdateVisibility();
     }
+    private void ClearMapVisuals()
+    {
+        foreach (var line in runtimeLines)
+        {
+            if (line.bg != null) Destroy(line.bg.gameObject);
+            if (line.fill != null) Destroy(line.fill.gameObject);
+        }
+        runtimeLines.Clear();
+    }
     private void UpdateVisibility()
     {
-        bool shouldActive = (SceneManager.GetActiveScene().name == "SceneSelect");
-
         foreach (Transform child in transform)
         {
-            child.gameObject.SetActive(shouldActive);
+            child.gameObject.SetActive(IsSelectScene);
         }
+    }
+    public StageData GetStageData(int index)
+    {
+        if (stages != null && index >= 0 && index < stages.Count)
+        {
+            return stages[index];
+        }
+        return null;
+    }
+    public StageData GetCurrentStageData()
+    {
+        return GetStageData(currentStageIndex);
     }
     public string GetCurrentStageName()
     {
@@ -87,16 +127,21 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
     }
     private void InitializeMap()
     {
-        runtimeLines.Clear();
-        
+        if (!IsSelectScene) return;
+        ClearMapVisuals();
+
+        int visualIndex = isClearAnimationPending ? currentStageIndex - 1 : currentStageIndex;
         for (int i = 0; i < stages.Count; i++)
         {
             if (stages[i].nodeObject != null)
             {
-                SetNodeColor(stages[i].nodeObject, (i == 0) ? unlockedNodeColor : lockedNodeColor);
+                SetNodeColor(stages[i].nodeObject,
+                    (i <= currentStageIndex) ? unlockedNodeColor : lockedNodeColor);
             }
 
             if (i >= stages.Count - 1) continue;
+
+            if (stages[i].nodeObject == null || stages[i + 1].nodeObject == null) continue;
 
             Vector3 startPos = stages[i].nodeObject.transform.position;
             Vector3 endPos = stages[i + 1].nodeObject.transform.position;
@@ -111,34 +156,88 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
             newLine.fill = CreateLine($"Line_Fill_{i}", 1, fillLineColor);
             newLine.fill.positionCount = 2;
             newLine.fill.SetPosition(0, startPos);
-            newLine.fill.SetPosition(1, startPos);
+
+            if (i < visualIndex)
+            {
+                newLine.fill.SetPosition(1, endPos);
+            }
+            else
+            {
+                newLine.fill.SetPosition(1, startPos);
+            }
 
             runtimeLines.Add(newLine);
         }
     }
 
-
-    public int GetCurrentStageIndex()
-    {
-        return currentStageIndex;
-    }
     public void ClearStageAndFillLine()
     {
-        if (currentStageIndex >= runtimeLines.Count) return;
+        if (currentStageIndex >= stages.Count) return;
 
-        StartCoroutine(AnimateSliderEffect());
+        if (IsSelectScene)
+        {
+            if (currentStageIndex < runtimeLines.Count)
+            {
+                StartCoroutine(AnimateSliderEffectImmediate());
+            }
+            else
+            {
+                SaveProgressOnly();
+            }
+        }
+        else
+        {
+            SaveProgressOnly();
+            isClearAnimationPending = true;
+        }
     }
-    public bool IsStageLocked(int stageIndex)
+    private void SaveProgressOnly()
     {
-        return stageIndex > currentStageIndex;
+        currentStageIndex++;
+        PlayerPrefs.SetInt(Key, currentStageIndex);
+        PlayerPrefs.Save();
     }
-    public bool IsStageUnlocked(int stageIndex)
+    private IEnumerator AnimatePendingClearEffect()
     {
-        return stageIndex <= currentStageIndex;
+        int targetLineIndex = currentStageIndex - 1;
+
+        if (targetLineIndex < 0 || targetLineIndex >= runtimeLines.Count)
+        {
+            isClearAnimationPending = false;
+            yield break;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        LineRenderer targetFillLine = runtimeLines[targetLineIndex].fill;
+        GameObject nextNode = stages[targetLineIndex + 1].nodeObject;
+        Vector3 endPos = nextNode.transform.position;
+
+        yield return DOTween.To(
+            () => targetFillLine.GetPosition(1),
+            (pos) => targetFillLine.SetPosition(1, pos),
+            endPos,
+            fillDuration
+        ).SetEase(fillEase).WaitForCompletion();
+
+        targetFillLine.SetPosition(1, endPos);
+
+        if (nextNode != null)
+        {
+            SetNodeColor(nextNode, unlockedNodeColor);
+            nextNode.transform.DOPunchScale(Vector3.one * 0.3f, 0.4f);
+        }
+
+        isClearAnimationPending = false;
     }
-    private IEnumerator AnimateSliderEffect()
+
+    private IEnumerator AnimateSliderEffectImmediate()
     {
+        if (currentStageIndex >= runtimeLines.Count) yield break;
+
         LineRenderer targetFillLine = runtimeLines[currentStageIndex].fill;
+        if (currentStageIndex + 1 >= stages.Count) yield break;
+
         GameObject nextNode = stages[currentStageIndex + 1].nodeObject;
         Vector3 endPos = nextNode.transform.position;
 
@@ -152,6 +251,8 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
         targetFillLine.SetPosition(1, endPos);
 
         currentStageIndex++;
+        PlayerPrefs.SetInt(Key, currentStageIndex);
+        PlayerPrefs.Save();
 
         if (nextNode != null)
         {
@@ -159,12 +260,50 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
             nextNode.transform.DOPunchScale(Vector3.one * 0.3f, 0.4f);
         }
     }
+    public int GetCurrentStageIndex() => currentStageIndex;
+    public bool IsStageLocked(int stageIndex)
+    {
+        return stageIndex > currentStageIndex;
+    }
+    public bool IsStageUnlocked(int stageIndex)
+    {
+        return stageIndex <= currentStageIndex;
+    }
+    /*private IEnumerator AnimateSliderEffect()
+    {
+        if (currentStageIndex >= runtimeLines.Count) yield break;
+
+        LineRenderer targetFillLine = runtimeLines[currentStageIndex].fill;
+
+        if (currentStageIndex + 1 >= stages.Count) yield break;
+        if (stages[currentStageIndex + 1].nodeObject == null) yield break;
+
+        GameObject nextNode = stages[currentStageIndex + 1].nodeObject;
+        Vector3 endPos = nextNode.transform.position;
+
+        yield return DOTween.To(
+            () => targetFillLine.GetPosition(1),
+            (pos) => targetFillLine.SetPosition(1, pos),
+            endPos,
+            fillDuration
+        ).SetEase(fillEase).WaitForCompletion();
+
+        targetFillLine.SetPosition(1, endPos);
+
+        SaveProgressOnly();
+
+        if (nextNode != null)
+        {
+            SetNodeColor(nextNode, unlockedNodeColor);
+            nextNode.transform.DOPunchScale(Vector3.one * 0.3f, 0.4f);
+        }
+    }*/
 
     private LineRenderer CreateLine(string name, int order, Color color)
     {
         GameObject go = new GameObject(name);
         go.transform.SetParent(this.transform);
-
+        //go.layer = gameObject.layer;
         LineRenderer lr = go.AddComponent<LineRenderer>();
         lr.material = lineMaterial;
         lr.startColor = color;
@@ -201,10 +340,24 @@ public class AH_StageManager : MonoSingleton<AH_StageManager>
             }
         }
     }
+    [ContextMenu("ResetProgress")]
+    public void ResetProgress()
+    {
+        currentStageIndex = 0;
+        isClearAnimationPending = false;
+        PlayerPrefs.SetInt(Key, 0);
+        PlayerPrefs.Save();
+        if (IsSelectScene) InitializeMap();
+    }
+    [ContextMenu("ASD")]
+    public void Test()
+    {
+        ClearStageAndFillLine();
+    }
     private void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Space)) ClearStageAndFillLine();
+        if (IsSelectScene && Input.GetKeyDown(KeyCode.Space)) ClearStageAndFillLine();
 #endif
     }
 }

@@ -167,8 +167,8 @@ public abstract class AbstractObjectScript : MonoBehaviour
                     followSpeed * Time.fixedDeltaTime
                 )
             );
-
-            transform.rotation = _flip.transform.rotation;
+            if(_flip != null)
+                transform.rotation = _flip.transform.rotation;
         }
         else
         {
