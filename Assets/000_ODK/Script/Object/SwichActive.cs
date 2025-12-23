@@ -23,6 +23,7 @@ public class SwichActive : AbstractObjectScript
             switchedOnSpriteRenderer.gameObject.SetActive(false);
             switchedOffSpriteRenderer.gameObject.SetActive(true);
         }
+        SoundManager.Instance.PlaySFX(1);
     }
 
 

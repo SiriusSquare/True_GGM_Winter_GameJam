@@ -266,13 +266,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundIndex: 2
   <Triggerable>k__BackingField: 0
   <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField: []
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 1
   <isInteractable>k__BackingField: 1
-  <ObjectColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 26741544470161679}
   selectRenderer: {fileID: 5116041390928554045}
   <Grabed>k__BackingField: 0
@@ -301,6 +301,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger2:
     m_PersistentCalls:
       m_Calls: []
   useItemEvent: []
