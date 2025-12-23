@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwichActive : AbstractObjectScript
@@ -9,46 +10,47 @@ public class SwichActive : AbstractObjectScript
     protected override void Awake()
     {
         base.Awake();
-
         switchedOnSpriteRenderer.color = ObjectColor;
         switchedOffSpriteRenderer.color = ObjectColor * new Color(0.7f, 0.7f, 0.7f);
-
-        UpdateVisuals();
+        
+        if (switched)
+        {
+            switchedOnSpriteRenderer.gameObject.SetActive(true);
+            switchedOffSpriteRenderer.gameObject.SetActive(false);
+        }
+        else
+        {
+            switchedOnSpriteRenderer.gameObject.SetActive(false);
+            switchedOffSpriteRenderer.gameObject.SetActive(true);
+        }
     }
 
-    private void OnMouseDown()
-    {
-        Interact();
-    }
 
     public override void Interact()
     {
+        AbstractObjectScript[] objects = FindObjectsByType<AbstractObjectScript>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
         switched = !switched;
 
-        AbstractObjectScript[] objects =
-            FindObjectsByType<AbstractObjectScript>(
-                FindObjectsInactive.Include,
-                FindObjectsSortMode.None
-            );
-
-        string myColorHex = ColorUtility.ToHtmlStringRGB(ObjectColor);
+        // 1. 현재 스위치의 색상을 Hex 코드로 변환 (예: "FF0000")
+        string myColorHex = UnityEngine.ColorUtility.ToHtmlStringRGB(ObjectColor);
 
         foreach (AbstractObjectScript obj in objects)
         {
             if (obj == this) continue;
-            if (obj.NoActiveChange) continue;
 
-            string targetColorHex =
-                ColorUtility.ToHtmlStringRGB(obj.ObjectColor);
+            // 2. 대상 오브젝트의 색상을 Hex 코드로 변환
+            string targetColorHex = UnityEngine.ColorUtility.ToHtmlStringRGB(obj.ObjectColor);
 
-            if (myColorHex != targetColorHex) continue;
-
-            if (obj.Activated)
-                obj.Disable();
-            else
-                obj.Active();
+            // 3. 문자열 비교 (대소문자 구분 없이 비교됨)
+            if (myColorHex == targetColorHex && !obj.NoActiveChange)
+            {
+                if (obj.Activated) obj.Disable();
+                else obj.Active();
+            }
         }
 
+        // 스위치 외형 업데이트 로직
         UpdateVisuals();
 
         base.Interact();
@@ -63,12 +65,9 @@ public class SwichActive : AbstractObjectScript
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (switchedOnSpriteRenderer != null)
-            switchedOnSpriteRenderer.color = ObjectColor;
-
-        if (switchedOffSpriteRenderer != null)
-            switchedOffSpriteRenderer.color =
-                ObjectColor * new Color(0.7f, 0.7f, 0.7f);
+        switchedOnSpriteRenderer.color = ObjectColor;
+        switchedOffSpriteRenderer.color = ObjectColor * new Color(0.7f, 0.7f, 0.7f);
     }
 #endif
+
 }
