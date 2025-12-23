@@ -405,8 +405,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 640
   gridSize: {x: 1, y: 1}
+  grabRange: 3
   maxCapacity: 1
+  mouseEffect: {fileID: 0}
+  ditectionEffect: {fileID: 0}
   <GrabArray>k__BackingField: []
+  grabSound: {fileID: 0}
+  fadeDistance: 3
+  fadeDuration: 0.2
 --- !u!114 &96626147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +605,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1637025563
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5388,12 +5394,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Triggerable>k__BackingField: 1
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField: []
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 1
+  <isInteractable>k__BackingField: 1
   spriteRenderer: {fileID: 238924568}
   selectRenderer: {fileID: 82488119}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
+  <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
   gridSize: 1
@@ -5415,6 +5427,13 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger2:
+    m_PersistentCalls:
+      m_Calls: []
+  useItemEvent: []
 --- !u!50 &238924566
 Rigidbody2D:
   serializedVersion: 5
@@ -5480,7 +5499,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.90909094, y: 0.90909094}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6004,13 +6023,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Triggerable>k__BackingField: 1
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField:
   - Wall
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 0
+  <isInteractable>k__BackingField: 1
   spriteRenderer: {fileID: 421215486}
   selectRenderer: {fileID: 1838090247}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
+  <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
   gridSize: 1
@@ -6032,6 +6057,13 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger2:
+    m_PersistentCalls:
+      m_Calls: []
+  useItemEvent: []
 --- !u!50 &421215484
 Rigidbody2D:
   serializedVersion: 5
@@ -6287,13 +6319,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Triggerable>k__BackingField: 1
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField:
   - Wall
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 0
+  <isInteractable>k__BackingField: 1
   spriteRenderer: {fileID: 690174144}
   selectRenderer: {fileID: 349020296}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
+  <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
   gridSize: 1
@@ -6315,6 +6353,13 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger2:
+    m_PersistentCalls:
+      m_Calls: []
+  useItemEvent: []
 --- !u!50 &690174142
 Rigidbody2D:
   serializedVersion: 5
@@ -6578,13 +6623,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Triggerable>k__BackingField: 1
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField:
   - Wall
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 0
+  <isInteractable>k__BackingField: 1
   spriteRenderer: {fileID: 1068912037}
   selectRenderer: {fileID: 349968265}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
+  <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
   gridSize: 1
@@ -6606,6 +6657,13 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger2:
+    m_PersistentCalls:
+      m_Calls: []
+  useItemEvent: []
 --- !u!50 &1068912035
 Rigidbody2D:
   serializedVersion: 5
@@ -7173,12 +7231,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Triggerable>k__BackingField: 1
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField: []
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 1
+  <isInteractable>k__BackingField: 1
   spriteRenderer: {fileID: 1500825251}
   selectRenderer: {fileID: 1567804570}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
+  <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
   gridSize: 1
@@ -7200,6 +7264,13 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger2:
+    m_PersistentCalls:
+      m_Calls: []
+  useItemEvent: []
 --- !u!50 &1500825249
 Rigidbody2D:
   serializedVersion: 5
@@ -7265,7 +7336,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.90909094, y: 0.90909094}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7551,12 +7622,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05008a3c0361caa40a41ae970ddc661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Triggerable>k__BackingField: 1
+  <NoActiveChange>k__BackingField: 0
   <ObjectType>k__BackingField: []
   <Activated>k__BackingField: 1
   <isGrabable>k__BackingField: 1
+  <isInteractable>k__BackingField: 1
   spriteRenderer: {fileID: 1606474965}
   selectRenderer: {fileID: 857693113}
   <Grabed>k__BackingField: 0
+  <IsConsumerble>k__BackingField: 0
+  <UseableObjectType>k__BackingField: []
+  <GrabTarget>k__BackingField: {fileID: 0}
   grabDistance: 0.5
   followSpeed: 15
   gridSize: 1
@@ -7578,6 +7655,13 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  onTrigger2:
+    m_PersistentCalls:
+      m_Calls: []
+  useItemEvent: []
 --- !u!50 &1606474963
 Rigidbody2D:
   serializedVersion: 5
@@ -7643,7 +7727,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.90909094, y: 0.90909094}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8093,7 +8177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1637025563
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.83396226, g: 0.83396226, b: 0.83396226, a: 1}
@@ -8327,7 +8411,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8543,6 +8627,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079285192}
   m_CullTransparentMesh: 1
+--- !u!1001 &7817697332185400576
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5813519834272344812, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_Name
+      value: AudioManagerGourop
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.9865186
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.546759
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.004356399
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416657936319099984, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ceeb655e0a184b4b8b9bb3f64f9133b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -8561,3 +8702,4 @@ SceneRoots:
   - {fileID: 1857603086}
   - {fileID: 1380687512}
   - {fileID: 1203422190}
+  - {fileID: 7817697332185400576}
